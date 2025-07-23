@@ -1,0 +1,120 @@
+.divPrincipal{
+    display: flex;
+    width: 95%;
+    margin: 30px;
+    min-height: 100vh;
+    background-color: #ffffff;
+    border-radius: 24px;
+    flex-direction: column;
+}
+.divHeader{
+    background: linear-gradient(to right, #fd6965, #f05c2e);
+    height: 100px;
+    width: 100%;
+    border-radius:24px 24px 0 0 ;
+    text-align: center;
+}
+.title{
+    font-family:Arial, Helvetica, sans-serif ;
+    color: #fff;
+    font-weight: 900;
+}
+.pc{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cupcake{
+    margin-top: 15px;
+}
+.registrarVenda{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 24px;
+    padding: 24px;
+    margin: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.resumoHoje{
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 24px;
+    margin: 24px;
+}
+.caixaPrincipal{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media(max-width: 650px){
+    .caixaPrincipal{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .registrarVenda{
+        width: 100%;
+    }
+    .resumoHoje{
+        width: 100%;
+    }
+}
+.custosMensais{
+    height: 30%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 24px;
+    margin: 42px;
+}
+.teste{
+ height: 3000px;
+ width: 50px;
+ background-color: #fd6965;
+}
+input{
+    width: 100%;
+    height: 50px;
+    border: 2px solid rgb(193, 193, 193);
+    border-radius: 12px;
+    color: gray;
+    padding: 0 0 0 12px;
+}
+.caixapp{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 100%;
+    color: gray;
+    gap: 8px;
+}
+.caixapp2{
+      display: flex;
+    flex-direction: column;
+    padding: 12px;
+    width: 100%;
+    color: gray;
+    gap: 8px;
+}
+.registrar{
+    margin: 32px;
+    background: linear-gradient(to right, #fd6965, #f05c2e);
+    border: none;
+    height: 40px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 900;
+}
+h2{
+    color: #333333;
+}
+.graph{
+    background-color: #f56141;
+    border-radius: 50%;
+    padding: 3px;
+    margin-left: 24px;
+}
