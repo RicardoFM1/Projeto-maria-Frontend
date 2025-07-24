@@ -1,3 +1,7 @@
+
+*{
+    font-family:Arial, Helvetica, sans-serif ;
+}
 .divPrincipal{
     display: flex;
     width: 95%;
@@ -23,6 +27,7 @@
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 12px;
 }
 .cupcake{
     margin-top: 15px;
@@ -31,20 +36,29 @@
     font-family: Arial, Helvetica, sans-serif;
     width: 50%;
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 24px;
     padding: 24px;
     margin: 24px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    transition: all 0.3s ease;
+}
+.registrarVenda:hover{
+    transform: translateY(-5px)
 }
 .resumoHoje{
     width: 50%;
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 24px;
     margin: 24px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+.resumoHoje:hover{
+    transform: translateY(-5px)
 }
 .caixaPrincipal{
     display: flex;
@@ -52,7 +66,7 @@
     width: 100%;
 }
 
-@media(max-width: 650px){
+@media(max-width: 750px){
     .caixaPrincipal{
         flex-wrap: wrap;
         width: 100%;
@@ -67,9 +81,17 @@
 .custosMensais{
     height: 30%;
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 24px;
     margin: 42px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.custosMensais:hover{
+    transform: translateY(-5px)
 }
 .teste{
  height: 3000px;
@@ -108,6 +130,10 @@ input{
     border-radius: 12px;
     color: white;
     font-weight: 900;
+    transition: all 0.3s ease;
+}
+.registrar:hover{
+    transform: translateY(-5px)
 }
 h2{
     color: #333333;
@@ -117,4 +143,121 @@ h2{
     border-radius: 50%;
     padding: 3px;
     margin-left: 24px;
+}
+.Produtos{
+    height: 30%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    margin: 42px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.Produtos:hover{
+    transform: translateY(-5px)
+}
+.vendas{
+    height: 30%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    margin: 42px;
+    transition: all 0.3s ease;
+}
+.vendas:hover{
+    transform: translateY(-5px)
+}
+.adicionar{
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 12px;
+    height: 60px;
+    width: 19%;
+    border-left: 4px solid #ff6b6b;
+    transition: all 0.3s ease;
+}
+.adicionar:hover{
+    transform: translateY(-5px)
+}
+.caixaT{
+    width: 100%;
+    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+@media(max-width: 650px){
+    .caixaT{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .adicionar{
+        width: 30%;
+    }
+}
+@media(max-width: 550px){
+    .caixaT{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .adicionar{
+        width: 48%;
+    }
+}
+@media(max-width: 490px){
+    .caixaT{
+        width: 100%;
+    }
+    .adicionar{
+        width: 46%;
+    }
+}
+.resumoStatus{
+    border-radius:16px ;
+    height: 130px;
+    width: 46%;
+    background:linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 900;
+    font-size: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.resumoStatus:hover{
+    transform: translateY(-3px)
+}
+@media(max-width: 875px){
+    .caixaStatus{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .resumoStatus{
+        width: 100%;
+    }
+}
+.caixaStatus{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.pStatus{
+    font-weight: 100;
+    font-size: 16px;
+}
+.vendasHoje{
+    font-size: 20px;
+    color: #333333;
+    font-weight: 600;
 }

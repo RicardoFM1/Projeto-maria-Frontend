@@ -10,24 +10,82 @@ export const ConteudoPrincipal=()=>{
    </div>
    <div className={style.caixaPrincipal}>
    <div className={style.registrarVenda}>
-     <h2><Iconify ClassName={style.graph} icon="uis:graph-bar" width={24} height={24}/>Registrar Venda</h2>
+     <h2><Iconify ClassName={style.graph} icon="uis:graph-bar" width={24} height={24}/>   Registrar Venda</h2>
      <div className={style.caixapp}>
  <p>Quantidade de Cupcakes</p>
      <input type="number" placeholder="ex: 5"/>
      </div>
-    
+
   <div className={style.caixapp2}>
      <p>Data da Venda</p>
      <input type="date" />
   </div>
      <button className={style.registrar} id="registrarVenda">registrar venda</button>
-     {/* <div className={style.teste}></div> */}
    </div>
    <div className={style.resumoHoje}>
+     <h2><Iconify ClassName={style.graph} icon="noto-v1:money-bag" width={24} height={24}/>         Resumo de hoje</h2>
+     <div className={style.caixaStatus}>
+             <div className={style.resumoStatus}>
+                    <p>0</p>
+                    <p className={style.pStatus}>Produtos vendidos</p>
+             </div>
+          <div className={style.resumoStatus}>
+                    <p>R$0,00</p>
+                    <p className={style.pStatus}>Faturamento</p>
+          </div>
+     
+          <div className={style.resumoStatus}>
+                    <p>R$0,00</p>
+                    <p className={style.pStatus}>Lucro</p>
+          </div>
+          </div>
+         <p  className={style.vendasHoje}>vendas de hoje</p>
    </div>
+   </div>
+   <div className={style.vendas}>
+     <h2>vendas</h2>
+          <div>produto
+               Quantidade
+               Faturamento(total vendido, Lucro)
+               data
+
+          </div>
+   </div>
+   <div className={style.Produtos}>
+        <h2>produtos</h2>
+           <div className={style.caixaT}>
+                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+               <button className={style.adicionar} id="addProdutos">adicionar</button>
+                    <button className={style.adicionar} id="addProdutos">adicionar</button>
+                         <button className={style.adicionar} id="addProdutos">adicionar</button>
+                              <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                   <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                    <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+          </div>
+        
    </div>
    <div className={style.custosMensais}>
-
+          <h2>Custos mensais</h2>
+          <div className={style.caixaT}>
+                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+               <button className={style.adicionar} id="addProdutos">adicionar</button>
+                    <button className={style.adicionar} id="addProdutos">adicionar</button>
+                         <button className={style.adicionar} id="addProdutos">adicionar</button>
+                              <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                   <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                    <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+          </div>
+    
    </div>
    </div>
 
