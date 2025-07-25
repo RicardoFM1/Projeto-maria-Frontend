@@ -166,6 +166,7 @@ h2{
     border-radius: 24px;
     margin: 42px;
     transition: all 0.3s ease;
+    padding: 16px;
 }
 .vendas:hover{
     transform: translateY(-5px)
@@ -260,4 +261,59 @@ h2{
     font-size: 20px;
     color: #333333;
     font-weight: 600;
+}
+.caixaVenda{
+    width: 95%;
+     background-color: #f8f9fa;
+    padding: 16px;
+     border-left: 4px solid #ff6b6b;
+     border-radius: 16px;
+    transition: all 0.3s ease;
+}
+.caixaVenda:hover{
+    transform: translateY(-5px)
+}
+.caixaVendaPrincipal{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.caixaVendaSecundaria{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-left: 5%;
+}
+.caixaVendaTerciaria{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+.caixaData{
+    display: flex;
+    justify-items: end;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -12px;
+    color: #f05c2e;
+    font-size: 24px;
+    font-weight: 900;
+}
+.caixaTFL{
+        display: flex;
+        margin-left: 5%;
+}
+.totalP{
+    color: #f05c2e;
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: -12px;
+    margin-right:12px ;
+}
+.add{
+    background-color: #f05c2e;
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: -8px;
+    margin-right: 12px;
 }

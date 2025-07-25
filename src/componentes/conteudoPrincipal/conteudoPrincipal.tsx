@@ -44,46 +44,33 @@ export const ConteudoPrincipal=()=>{
    </div>
    <div className={style.vendas}>
      <h2>vendas</h2>
-          <div>produto
-               Quantidade
-               Faturamento(total vendido, Lucro)
-               data
-
+          <div className={style.caixaVenda}>
+               <div className={style.caixaVendaPrincipal}>
+                    <div className={style.caixaVendaSecundaria}>
+                         <p>24x</p>
+                         <p>cupcake</p>  
+                    </div>
+                    <div className={style.caixaVendaTerciaria}><p>Faturamento</p>
+                    <p>Faturamento total:</p>
+                         <p>lucro</p>
+                    </div>
+                    </div>
+                    <div className={style.caixaData}>data:</div>
+                    <div className={style.caixaTFL}><p className={style.totalP}>total:</p> Faturamento: lucro:</div>
           </div>
    </div>
    <div className={style.Produtos}>
         <h2>produtos</h2>
            <div className={style.caixaT}>
-                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-               <button className={style.adicionar} id="addProdutos">adicionar</button>
-                    <button className={style.adicionar} id="addProdutos">adicionar</button>
-                         <button className={style.adicionar} id="addProdutos">adicionar</button>
-                              <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                   <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                    <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                     <button className={style.adicionar} id="addProdutos"><Iconify ClassName={style.add} icon="streamline:add-1-solid" width={24} height={24}/>adicionar</button>
+
           </div>
         
    </div>
    <div className={style.custosMensais}>
           <h2>Custos mensais</h2>
           <div className={style.caixaT}>
-                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-               <button className={style.adicionar} id="addProdutos">adicionar</button>
-                    <button className={style.adicionar} id="addProdutos">adicionar</button>
-                         <button className={style.adicionar} id="addProdutos">adicionar</button>
-                              <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                   <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                    <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
-                                     <button className={style.adicionar} id="addProdutos">adicionar</button>
+                       <button className={style.adicionar} id="addProdutos"><Iconify ClassName={style.add} icon="streamline:add-1-solid" width={24} height={24}/>adicionar</button>
           </div>
     
    </div>
