@@ -10,6 +10,7 @@ import {
 } from "../../schemas/venda.schemas";
 import { Input } from "../input/input";
 import { toast } from "react-toastify";
+import { apiResVendasPost } from "../apiRes/apiResVendas";
 
 
 export const ConteudoPrincipal = () => {
@@ -18,11 +19,11 @@ export const ConteudoPrincipal = () => {
     const apiRes = await apiController.get("/doces");
     setDoces(apiRes.data);
   };
-  const [vendas, setVendas] = useState([])
-  const getVendas = async() => {
-     const apiRes = await apiController.get("/vendas")
-     setVendas(apiRes.data)
-  }
+  const [vendas, setVendas] = useState([]);
+  const getVendas = async () => {
+    const apiRes = await apiController.get("/vendas");
+    setVendas(apiRes.data);
+  };
   type Registro = {
     Produto: string;
     Quantidade: number;
@@ -33,14 +34,14 @@ export const ConteudoPrincipal = () => {
   ]);
   const [showRemove, setShowRemove] = useState(true);
 
-  useEffect(() =>{
-     getVendas()
-  }, [])
-  useEffect(() =>{
- setTimeout(() => {
+  useEffect(() => {
+    getVendas();
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
       console.log(vendas);
     }, 3000);
-  }, [vendas])
+  }, [vendas]);
   useEffect(() => {
     getDoces();
   }, []);
@@ -59,11 +60,9 @@ export const ConteudoPrincipal = () => {
     }
   }, [registros]);
 
-  
-
   const AdicionarRegistro = () => {
     console.log("registroAdd");
-    setRegistros([...registros, {  Produto: "", Quantidade: 0 }]);
+    setRegistros([...registros, { Produto: "", Quantidade: 0 }]);
   };
 
   const RemoverRegistro = () => {
@@ -77,30 +76,23 @@ export const ConteudoPrincipal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<iCreateVenda>({
-    defaultValues:{
-      quantidade: undefined
-    },
     mode: "onSubmit",
     resolver: zodResolver(CreateVendaSchema),
   });
   const cadastrarVenda = async (vendaData: iCreateVenda) => {
     console.log(vendaData, "vendaData");
-     
+
     try {
-      const resVenda = await apiController.post("/vendas", vendaData);
-     console.log(resVenda)
-     if(resVenda.data){
-          toast.success("Venda cadastrada com sucesso!")
-     }
+      const apiRes = await apiResVendasPost(vendaData);
+      console.log(apiRes);
+      if (apiRes.data) {
+        toast.success("Venda cadastrada com sucesso!");
+      }
     } catch (errors: any) {
       console.log(errors, "erro");
-      toast.error("Erro ao cadastrar a venda")
+      toast.error(errors.response.data.message);
     }
   };
-
-
-
-
   
 
   return (
@@ -136,35 +128,45 @@ export const ConteudoPrincipal = () => {
             >
               {registros.map((_registro, index) => (
                 <div key={index} className={style.inputsRegistrar}>
-                  
                   <div className={style.caixapp}>
                     <label>Produto</label>
                     <div>
                       <Input
                         type="text"
                         placeholder="ex: Cupcake"
-                        register={register("produto")}
+                        register={register("produto", {})}
                         className={style.inputProduto}
                         label={""}
-                        errorMsg={errors.produto&&errors.produto.message}
+                        errorMsg={errors.produto && errors.produto.message}
+                        list="produtos"
                       />
                     </div>
                   </div>
 
                   <div className={style.caixapp2}>
-                    <label >Quantidade</label>
+                    <label>Quantidade</label>
                     <Input
                       type="number"
                       placeholder="ex: 5"
-                      register={register("quantidade", {valueAsNumber: true})}
+                      register={register("quantidade", {
+                        valueAsNumber: true,
+                        required: "O campo quantidade precisa ser preenchido!",
+                        validate: (value) => {
+                          if (isNaN(value)) {
+                            return "Precisa ser um número";
+                          }
+
+                          return true;
+                        },
+                      })}
                       className={style.inputQuantidade}
                       label={""}
-                      errorMsg={errors.quantidade&&errors.quantidade.message}
-                     
+                      errorMsg={errors.quantidade && errors.quantidade.message}
                     />
                   </div>
                 </div>
               ))}
+
 
               <button
                 onClick={AdicionarRegistro}
@@ -200,7 +202,11 @@ export const ConteudoPrincipal = () => {
                 </button>
               </div>
 
-              <button type="submit" className={style.registrar} id="btnRegistrarVenda">
+              <button
+                type="submit"
+                className={style.registrar}
+                id="btnRegistrarVenda"
+              >
                 registrar venda
               </button>
             </form>
