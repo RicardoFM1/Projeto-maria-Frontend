@@ -1,8 +1,15 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
+import { apiController } from "../../controller/api.controller";
 
 export const ConteudoPrincipal = () => {
+  const [doces, setDoces] = useState([]);
+  const getDoces = async () => {
+    const testeApi = await apiController.get("/doces");
+    setDoces(testeApi.data);
+  };
+
   type Registro = {
     Produto: string;
     Quantidade: string;
@@ -14,12 +21,19 @@ export const ConteudoPrincipal = () => {
   const [showRemove, setShowRemove] = useState(true);
 
   useEffect(() => {
-   
+    getDoces();
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(doces);
+    }, 3000);
+  }, [doces]);
+
+  useEffect(() => {
     if (registros.length <= 1) {
       setShowRemove(false);
       setTimeout(() => setShowRemove(false), 300);
     } else {
-
       setShowRemove(true);
     }
   }, [registros]);
