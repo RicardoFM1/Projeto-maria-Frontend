@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
 import { apiController } from "../../controller/api.controller";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import {
+  CreateVendaSchema,
+  type iCreateVenda,
+} from "../../schemas/venda.schemas";
+import { Input } from "../input/input";
+import { toast } from "react-toastify";
 
 export const ConteudoPrincipal = () => {
   const [doces, setDoces] = useState([]);
@@ -38,16 +46,8 @@ export const ConteudoPrincipal = () => {
     }
   }, [registros]);
 
-  const handleChange = (
-    index: number,
-    field: keyof Registro,
-    value: string
-  ) => {
-    const novosRegistros = [...registros];
-    novosRegistros[index][field] = value;
+  
 
-    setRegistros(novosRegistros);
-  };
   const AdicionarRegistro = () => {
     console.log("registroAdd");
     setRegistros([...registros, { Produto: "", Quantidade: "" }]);
@@ -56,6 +56,29 @@ export const ConteudoPrincipal = () => {
   const RemoverRegistro = () => {
     if (registros.length > 1) {
       setRegistros(registros.slice(0, -1));
+    }
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iCreateVenda>({
+    mode: "onBlur",
+    resolver: zodResolver(CreateVendaSchema),
+  });
+  const cadastrarVenda = async (vendaData: iCreateVenda) => {
+    console.log(vendaData, "vendaData");
+     
+    try {
+      const resVenda = await apiController.post("/vendas", vendaData);
+     console.log(resVenda)
+     if(resVenda.data){
+          toast.success("Venda cadastrada com sucesso!")
+     }
+    } catch (errors: any) {
+      console.log(errors, "erro");
+      toast.error("Erro ao cadastrar a venda")
     }
   };
 
@@ -86,73 +109,78 @@ export const ConteudoPrincipal = () => {
               Registrar Venda
             </h2>
 
-            {registros.map((registro, index) => (
-              <div key={index} className={style.inputsRegistrar}>
-                <div className={style.caixapp}>
-                  <p>Produto</p>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="ex: Cupcake"
-                      value={registro.Produto}
-                      onChange={(e) =>
-                        handleChange(index, "Produto", e.target.value)
-                      }
+            <form
+              className={style.formRegistro}
+              onSubmit={handleSubmit(cadastrarVenda)}
+            >
+              {registros.map((registro, index) => (
+                <div key={index} className={style.inputsRegistrar}>
+                  <div className={style.caixapp}>
+                    <label>Produto</label>
+                    <div>
+                      <Input
+                        type="text"
+                        placeholder="ex: Cupcake"
+                        register={register("produto")}
+                        className={style.inputProduto}
+                        label={""}
+                        errorMsg={errors.produto&&errors.produto.message}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={style.caixapp2}>
+                    <label>Quantidade</label>
+                    <Input
+                      type="number"
+                      placeholder="ex: 5"
+                      register={register("quantidade")}
+                      className={style.inputQuantidade}
+                      label={""}
+                      errorMsg={errors.quantidade&&errors.quantidade.message}
                     />
                   </div>
                 </div>
+              ))}
 
-                <div className={style.caixapp2}>
-                  <p>Quantidade</p>
-                  <input
-                    type="number"
-                    placeholder="ex: 5"
-                    value={registro.Quantidade}
-                    onChange={(e) =>
-                      handleChange(index, "Quantidade", e.target.value)
-                    }
-                  />
-                </div>
-              </div>
-            ))}
-
-            <button
-              onClick={AdicionarRegistro}
-              className={style.adicionarRegistro}
-              id="addRegistro"
-            >
-              <Iconify
-                ClassName={style.add}
-                icon="streamline:add-1-solid"
-                width={24}
-                height={24}
-              />
-              Adicionar
-            </button>
-
-            <div
-              className={`${style.removerRegistroAnim} ${
-                showRemove ? "" : style.removerRegistroAnimEscondido
-              }`}
-            >
               <button
-                onClick={RemoverRegistro}
-                className={style.removerRegistro}
-                id="removeRegistro"
+                onClick={AdicionarRegistro}
+                className={style.adicionarRegistro}
+                id="addRegistro"
               >
                 <Iconify
-                  ClassName={style.remove}
-                  icon="material-symbols:remove-rounded"
+                  ClassName={style.add}
+                  icon="streamline:add-1-solid"
                   width={24}
                   height={24}
                 />
-                Remover
+                Adicionar
               </button>
-            </div>
 
-            <button className={style.registrar} id="btnRegistrarVenda">
-              registrar venda
-            </button>
+              <div
+                className={`${style.removerRegistroAnim} ${
+                  showRemove ? "" : style.removerRegistroAnimEscondido
+                }`}
+              >
+                <button
+                  onClick={RemoverRegistro}
+                  className={style.removerRegistro}
+                  id="removeRegistro"
+                >
+                  <Iconify
+                    ClassName={style.remove}
+                    icon="material-symbols:remove-rounded"
+                    width={24}
+                    height={24}
+                  />
+                  Remover
+                </button>
+              </div>
+
+              <button type="submit" className={style.registrar} id="btnRegistrarVenda">
+                registrar venda
+              </button>
+            </form>
           </div>
           <div className={style.resumoHoje}>
             <h2>

@@ -1,210 +1,212 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  scroll-behavior: smooth;
+}
+.divPrincipal {
+  display: flex;
+  width: 95%;
+  margin: 30px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  border-radius: 24px;
+  flex-direction: column;
+}
+.divHeader {
+  background: linear-gradient(to right, #fd6965, #f05c2e);
+  height: 100px;
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  text-align: center;
+}
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 900;
+}
+.pc {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 12px;
+}
+.cupcake {
+  margin-top: 15px;
+}
+.registrarVenda {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  gap: 20px;
+}
+.registrarVenda:hover {
+  transform: translateY(-5px);
+}
+.resumoHoje {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 24px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+.resumoHoje:hover {
+  transform: translateY(-5px);
+}
+.caixaPrincipal {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 
-*{
-    font-family:Arial, Helvetica, sans-serif ;
-}
-body{
-    scroll-behavior: smooth;
-}
-.divPrincipal{
-    display: flex;
-    width: 95%;
-    margin: 30px;
-    min-height: 100vh;
-    background-color: #ffffff;
-    border-radius: 24px;
-    flex-direction: column;
-}
-.divHeader{
-    background: linear-gradient(to right, #fd6965, #f05c2e);
-    height: 100px;
+@media (max-width: 750px) {
+  .caixaPrincipal {
+    flex-wrap: wrap;
     width: 100%;
-    border-radius:24px 24px 0 0 ;
-    text-align: center;
-}
-.title{
-    font-family:Arial, Helvetica, sans-serif ;
-    color: #fff;
-    font-weight: 900;
-}
-.pc{
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-bottom: 12px;
-}
-.cupcake{
-    margin-top: 15px;
-}
-.registrarVenda{
-    font-family: Arial, Helvetica, sans-serif;
-    width: 50%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    padding: 24px;
-    margin: 24px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    gap: 20px;
-}
-.registrarVenda:hover{
-    transform: translateY(-5px)
-}
-.resumoHoje{
-    width: 50%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    margin: 24px;
-    padding: 24px;
-    transition: all 0.3s ease;
-}
-.resumoHoje:hover{
-    transform: translateY(-5px)
-}
-.caixaPrincipal{
-    display: flex;
-    flex-direction: row;
+  }
+  .registrarVenda {
     width: 100%;
-}
-
-@media(max-width: 750px){
-    .caixaPrincipal{
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    .registrarVenda{
-        width: 100%;
-    }
-    .resumoHoje{
-        width: 100%;
-    }
-}
-.custosMensais{
-    height: 30%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    margin: 42px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.custosMensais:hover{
-    transform: translateY(-5px)
-}
-.teste{
- height: 3000px;
- width: 50px;
- background-color: #fd6965;
-}
-.inputsRegistrar{
-    display: flex;
-}
-input{
+  }
+  .resumoHoje {
     width: 100%;
-    height: 50px;
-    border: 2px solid rgb(193, 193, 193);
-    border-radius: 12px;
-    color: gray;
-    padding: 0 0 0 12px;
+  }
 }
-.caixapp{
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    width: 100%;
-    color: gray;
-    gap: 8px;
+.custosMensais {
+  height: 30%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 42px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.caixapp2{
-      display: flex;
-    flex-direction: column;
-    padding: 12px;
-    width: 100%;
-    color: gray;
-    gap: 8px;
+.custosMensais:hover {
+  transform: translateY(-5px);
 }
-.registrar{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    background: linear-gradient(to right, #fd6965, #f05c2e);
-    border: none;
-    height: 40px;
-    border-radius: 12px;
-    color: white;
-    font-weight: 900;
-    transition: all 0.3s ease;
+.teste {
+  height: 3000px;
+  width: 50px;
+  background-color: #fd6965;
 }
-.registrar:hover{
-    transform: translateY(-5px)
+.inputsRegistrar {
+  display: flex;
 }
-h2{
-    color: #333333;
+input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid rgb(193, 193, 193);
+  border-radius: 12px;
+  color: gray;
+  padding: 0 0 0 12px;
 }
-.graph{
-    background-color: #f56141;
-    border-radius: 50%;
-    padding: 3px;
-    margin-left: 24px;
+.caixapp {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: 100%;
+  color: gray;
+  gap: 8px;
 }
-.Produtos{
-    height: 30%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    margin: 42px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s ease;
+.caixapp2 {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  width: 100%;
+  color: gray;
+  gap: 8px;
 }
-.Produtos:hover{
-    transform: translateY(-5px)
+.registrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #fd6965, #f05c2e);
+  border: none;
+  height: 40px;
+  width: 100%;
+  border-radius: 12px;
+  color: white;
+  font-weight: 900;
+  transition: all 0.3s ease;
 }
-.vendas{
-    height: 30%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
-    margin: 42px;
-    transition: all 0.3s ease;
-    padding: 16px;
+.registrar:hover {
+  transform: translateY(-5px);
 }
-.vendas:hover{
-    transform: translateY(-5px)
+h2 {
+  color: #333333;
 }
-.adicionar{
-    border: none;
-    border-radius: 12px;
-    height: 60px;
-    width: 20%;
-    border-left: 4px solid #ff6b6b;
-    transition: all 0.3s ease;
+.graph {
+  background-color: #f56141;
+  border-radius: 50%;
+  padding: 3px;
+  margin-left: 24px;
 }
-.adicionar:hover{
-    transform: translateY(-5px)
+.Produtos {
+  height: 30%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 42px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.adicionarRegistro, .removerRegistro{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 12px;
-    height: 50px;
-    margin: 0 0 20px 0;
-    border-left: 4px solid #ff6b6b;
-    transition: all 0.3s ease;
+.Produtos:hover {
+  transform: translateY(-5px);
 }
-.adicionarRegistro:hover, .removerRegistro:hover{
-    transform: translateY(-5px)
+.vendas {
+  height: 30%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 42px;
+  transition: all 0.3s ease;
+  padding: 16px;
+}
+.vendas:hover {
+  transform: translateY(-5px);
+}
+.adicionar {
+  border: none;
+  border-radius: 12px;
+  height: 60px;
+  width: 20%;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+}
+.adicionar:hover {
+  transform: translateY(-5px);
+}
+.adicionarRegistro,
+.removerRegistro {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  height: 50px;
+  margin: 0 0 20px 0;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+}
+.adicionarRegistro:hover,
+.removerRegistro:hover {
+  transform: translateY(-5px);
 }
 .removerRegistroAnim {
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -220,141 +222,142 @@ h2{
   overflow: hidden;
 }
 
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 
-.caixaT{
-    width: 100%;
-    gap: 12px;
-    display: flex;
+.caixaT {
+  width: 100%;
+  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 650px) {
+  .caixaT {
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+  }
+  .adicionar {
+    width: 30%;
+  }
 }
-@media(max-width: 650px){
-    .caixaT{
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    .adicionar{
-        width: 30%;
-    }
+@media (max-width: 550px) {
+  .caixaT {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .adicionar {
+    width: 48%;
+  }
 }
-@media(max-width: 550px){
-    .caixaT{
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    .adicionar{
-        width: 48%;
-    }
-}
-@media(max-width: 490px){
-    .caixaT{
-        width: 100%;
-    }
-    .adicionar{
-        width: 46%;
-    }
-}
-.resumoStatus{
-    border-radius:16px ;
-    height: 130px;
+@media (max-width: 490px) {
+  .caixaT {
+    width: 100%;
+  }
+  .adicionar {
     width: 46%;
-    background:linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    font-weight: 900;
-    font-size: 35px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
+  }
 }
-.resumoStatus:hover{
-    transform: translateY(-3px)
+.resumoStatus {
+  border-radius: 16px;
+  height: 130px;
+  width: 46%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 900;
+  font-size: 35px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
 }
-@media(max-width: 875px){
-    .caixaStatus{
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .resumoStatus{
-        width: 100%;
-    }
+.resumoStatus:hover {
+  transform: translateY(-3px);
 }
-.caixaStatus{
-    display: flex;
-    flex-direction: row;
+@media (max-width: 875px) {
+  .caixaStatus {
     width: 100%;
-    justify-content: space-between;
-    gap: 24px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
+  }
+  .resumoStatus {
+    width: 100%;
+  }
 }
-.pStatus{
-    font-weight: 100;
-    font-size: 16px;
+.caixaStatus {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
-.vendasHoje{
-    font-size: 20px;
-    color: #333333;
-    font-weight: 600;
+.pStatus {
+  font-weight: 100;
+  font-size: 16px;
 }
-.caixaVenda{
-    width: 95%;
-     background-color: #f8f9fa;
-    padding: 16px;
-     border-left: 4px solid #ff6b6b;
-     border-radius: 16px;
-    transition: all 0.3s ease;
+.vendasHoje {
+  font-size: 20px;
+  color: #333333;
+  font-weight: 600;
 }
-.caixaVenda:hover{
-    transform: translateY(-5px)
+.caixaVenda {
+  width: 95%;
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-left: 4px solid #ff6b6b;
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
-.caixaVendaPrincipal{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
+.caixaVenda:hover {
+  transform: translateY(-5px);
 }
-.caixaVendaSecundaria{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    margin-left: 5%;
+.caixaVendaPrincipal {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
-.caixaVendaTerciaria{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
+.caixaVendaSecundaria {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-left: 5%;
 }
-.caixaData{
-    display: flex;
-    justify-items: end;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: -12px;
-    color: #f05c2e;
-    font-size: 24px;
-    font-weight: 900;
+.caixaVendaTerciaria {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
 }
-.caixaTFL{
-        display: flex;
-        margin-left: 5%;
+.caixaData {
+  display: flex;
+  justify-items: end;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -12px;
+  color: #f05c2e;
+  font-size: 24px;
+  font-weight: 900;
 }
-.totalP{
-    color: #f05c2e;
-    font-size: 24px;
-    font-weight: 900;
-    margin-top: -12px;
-    margin-right:12px ;
+.caixaTFL {
+  display: flex;
+  margin-left: 5%;
 }
-.add, .remove{
-    background-color: #f05c2e;
-    padding: 3px;
-    border-radius: 5px;
-    margin-bottom: -8px;
-    margin-right: 12px;
+.totalP {
+  color: #f05c2e;
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: -12px;
+  margin-right: 12px;
+}
+.add,
+.remove {
+  background-color: #f05c2e;
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: -8px;
+  margin-right: 12px;
 }
