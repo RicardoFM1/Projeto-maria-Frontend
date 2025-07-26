@@ -1,9 +1,9 @@
 import z from "zod"
 
 export const CreateDoceSchema = z.object({
-    name: z.string(),
-    preco_de_custo: z.number(),
-    preco_de_venda: z.number()
+    name: z.string().min(1, "Precisa ser preenchido"),
+    preco_de_custo: z.number().min(1, "Precisa ser preenchido"),
+    preco_de_venda: z.number().min(1, "Precisa ser preenchido")
 })
 
 export const ReturnDoceSchema = CreateDoceSchema.extend({

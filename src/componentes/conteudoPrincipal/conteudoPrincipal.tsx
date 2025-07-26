@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
 import { apiController } from "../../controller/api.controller";
@@ -10,6 +10,7 @@ import {
 } from "../../schemas/venda.schemas";
 import { Input } from "../input/input";
 import { toast } from "react-toastify";
+
 
 export const ConteudoPrincipal = () => {
   const [doces, setDoces] = useState([]);
@@ -24,11 +25,11 @@ export const ConteudoPrincipal = () => {
   }
   type Registro = {
     Produto: string;
-    Quantidade: string;
+    Quantidade: number;
   };
 
   const [registros, setRegistros] = useState<Registro[]>([
-    { Produto: "", Quantidade: "" },
+    { Produto: "", Quantidade: 0 },
   ]);
   const [showRemove, setShowRemove] = useState(true);
 
@@ -62,7 +63,7 @@ export const ConteudoPrincipal = () => {
 
   const AdicionarRegistro = () => {
     console.log("registroAdd");
-    setRegistros([...registros, { Produto: "", Quantidade: "" }]);
+    setRegistros([...registros, {  Produto: "", Quantidade: 0 }]);
   };
 
   const RemoverRegistro = () => {
@@ -76,7 +77,10 @@ export const ConteudoPrincipal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<iCreateVenda>({
-    mode: "onBlur",
+    defaultValues:{
+      quantidade: undefined
+    },
+    mode: "onSubmit",
     resolver: zodResolver(CreateVendaSchema),
   });
   const cadastrarVenda = async (vendaData: iCreateVenda) => {
@@ -93,6 +97,11 @@ export const ConteudoPrincipal = () => {
       toast.error("Erro ao cadastrar a venda")
     }
   };
+
+
+
+
+  
 
   return (
     <>
@@ -125,8 +134,9 @@ export const ConteudoPrincipal = () => {
               className={style.formRegistro}
               onSubmit={handleSubmit(cadastrarVenda)}
             >
-              {registros.map((registro, index) => (
+              {registros.map((_registro, index) => (
                 <div key={index} className={style.inputsRegistrar}>
+                  
                   <div className={style.caixapp}>
                     <label>Produto</label>
                     <div>
@@ -142,14 +152,15 @@ export const ConteudoPrincipal = () => {
                   </div>
 
                   <div className={style.caixapp2}>
-                    <label>Quantidade</label>
+                    <label >Quantidade</label>
                     <Input
                       type="number"
                       placeholder="ex: 5"
-                      register={register("quantidade")}
+                      register={register("quantidade", {valueAsNumber: true})}
                       className={style.inputQuantidade}
                       label={""}
                       errorMsg={errors.quantidade&&errors.quantidade.message}
+                     
                     />
                   </div>
                 </div>

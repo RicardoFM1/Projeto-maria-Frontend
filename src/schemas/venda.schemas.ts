@@ -2,9 +2,10 @@ import  z  from "zod"
 import { ReturnDoceSchema } from "./doce.schemas"
 
 export const CreateVendaSchema = z.object({
-    produto: ReturnDoceSchema.pick({id: true}).array(),
-    quantidade: z.number()
+    produto: z.string().min(1, "Precisa ser preenchido"),
+    quantidade:z.number().refine(val => !isNaN(val), {message: "Precisa ser preenchido"})
 })
+
 export const ReturnVendaSchema = z.object({
     produto:ReturnDoceSchema,
     quantidade: z.number(),

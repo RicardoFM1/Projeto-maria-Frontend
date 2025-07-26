@@ -22,6 +22,7 @@ export const Input = ({errorMsg, label, className, type, placeholder, register}:
             :<input className={className??""} type={type} {...register} placeholder={placeholder}/>
         }
         {errorMsg ? 
+        
                 <span className={className}>{errorMsg}</span>
                 : <span className={className}></span> }
     
