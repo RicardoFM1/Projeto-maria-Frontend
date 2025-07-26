@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
 import { apiController } from "../../controller/api.controller";
@@ -14,10 +14,14 @@ import { toast } from "react-toastify";
 export const ConteudoPrincipal = () => {
   const [doces, setDoces] = useState([]);
   const getDoces = async () => {
-    const testeApi = await apiController.get("/doces");
-    setDoces(testeApi.data);
+    const apiRes = await apiController.get("/doces");
+    setDoces(apiRes.data);
   };
-
+  const [vendas, setVendas] = useState([])
+  const getVendas = async() => {
+     const apiRes = await apiController.get("/vendas")
+     setVendas(apiRes.data)
+  }
   type Registro = {
     Produto: string;
     Quantidade: string;
@@ -28,6 +32,14 @@ export const ConteudoPrincipal = () => {
   ]);
   const [showRemove, setShowRemove] = useState(true);
 
+  useEffect(() =>{
+     getVendas()
+  }, [])
+  useEffect(() =>{
+ setTimeout(() => {
+      console.log(vendas);
+    }, 3000);
+  }, [vendas])
   useEffect(() => {
     getDoces();
   }, []);
