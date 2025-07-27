@@ -72,4 +72,6 @@ input {
   height: 0;
   overflow: hidden;
 }
-
+.errorMsg{
+    color: rgb(139, 63, 63) 
+}

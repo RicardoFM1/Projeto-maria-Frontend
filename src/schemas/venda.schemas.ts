@@ -4,7 +4,7 @@ import { ReturnDoceSchema } from "./doce.schemas"
 
 export const CreateVendaSchema = z.object({
     produto: z.string().min(1, "Precisa ser preenchido").toLowerCase(),
-    quantidade:z.number().refine(val => !isNaN(val), {message: "Precisa ser preenchido"}).positive(
+    quantidade:z.number().min(1, "Precisa ser preenchido ou um número válido").positive(
         "Precisa ser maior que 0"
     )
 })
@@ -17,6 +17,8 @@ export const ReturnVendaSchema = z.object({
     data_da_venda: z.string(),
     id: z.number()
 })
+
+export const ReturnAllVendasSchema = ReturnVendaSchema.array()
 
 export type iCreateVenda = z.infer<typeof CreateVendaSchema>
 export type iReturnVenda = z.infer<typeof ReturnVendaSchema>

@@ -74,7 +74,7 @@ export const FormRegistro = ({
               placeholder="ex: Cupcake"
               list={list}
               {...register(`produto`, {
-                required: "Produto obrigatório",
+                required: "Produto obrigatório"
               })}
               className={style.inputProduto}
             />

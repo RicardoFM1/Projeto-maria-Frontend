@@ -23,8 +23,3 @@ export const apiResProdutoPatch = async(vendaId:string, vendaData:iCreateDoce) =
     const resApi = await apiController.patch(`/doces/${vendaId}`, vendaData)
     return resApi
 }
-
-export const apiResProdutoDelete = async(vendaId:any) => {
-    const resApi = await apiController.delete(`/doces/${vendaId}`)
-    return resApi
-}

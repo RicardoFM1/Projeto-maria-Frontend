@@ -1,20 +1,23 @@
+import { useState } from "react";
+import { Iconify } from "../iconify/iconify";
+import type { produtoDivProps } from "../Interfaces/produtoDivInterface";
+import { ModalProduto } from "../Modal/modal";
+import style from "./produtoDiv.module.css";
 
-import { Iconify } from "../iconify/iconify"
-import type { produtoDivProps } from "../Interfaces/produtoDivInterface"
-import style from "./produtoDiv.module.css"
+export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-
-
-
-
-export const Produto = ({ divType, errorMsg}:produtoDivProps) => {
-    return <div className={style.divProduto}>
-        { 
-        divType === "Produto"?
+  return (
+    <div className={style.divProduto}>
+      {divType === "Produto" ? (
         <div className={style.Produtos}>
-        <h2>produtos</h2>
+          <h2>Produtos</h2>
           <div className={style.caixaT}>
-            <button className={style.adicionar} id="addProdutos">
+            <button
+              onClick={() => setIsOpen(true)}
+              className={style.adicionar}
+              id="addProdutos"
+            >
               <Iconify
                 ClassName={style.add}
                 icon="streamline:add-1-solid"
@@ -24,16 +27,15 @@ export const Produto = ({ divType, errorMsg}:produtoDivProps) => {
               Adicionar
             </button>
           </div>
+          {divType === "Produto" ? <ModalProduto isOpen={isOpen} /> : null}
         </div>
-            
-            : null
-        }
-        
-        {errorMsg?
-                <span className={style.spanError}>{errorMsg}</span>
-                :<span className={style.spanError}></span>
-    }
-         
-        </div>
-        
-    }
+      ) : null}
+
+      {errorMsg ? (
+        <span className={style.spanError}>{errorMsg}</span>
+      ) : (
+        <span className={style.spanError}></span>
+      )}
+    </div>
+  );
+};
