@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
-import type { produtoDivProps } from "../Interfaces/produtoDivInterface";
+import type { iProduto, produtoDivProps } from "../Interfaces/produtoDivInterface";
 import { ModalProduto } from "../Modal/modal";
 import style from "./produtoDiv.module.css";
 import { apiResProdutoGet } from "../apiRes/apiResProdutos";
@@ -20,7 +20,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log(doces);
+      getDoces()
     }, 3000);
   }, [doces]);
 
@@ -30,21 +30,22 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
         <div className={style.Produtos}>
           <h2>Produtos</h2>
           <div className={style.caixaT}>
-            {doces.map((doce: any) => (
+            {doces.map((doce: iProduto) => (
               <>
                 <div className={style.divProdutos}>
                   <div className={style.caixaProdutos}>
                    
                     <p>{doce.name}</p>
 
-                    
+                    <div className={style.valoresProduto}>
                       <div className={style.divPrecoDeCusto}>
-                        <p>Preço de custo:</p> 
-                          <p className={style.PrecoDeCusto}> R${doce.preco_de_custo}</p>
+                        <p>Preço de custo</p> 
+                          <p className={style.PrecoDeCusto}> R$ {doce.preco_de_custo}</p>
                       </div>
                       <div className={style.divPrecoDeVenda}>
-                        <p>Preço de venda:</p>
-                          <p className={style.PrecoDeVenda}> R${doce.preco_de_venda}</p>
+                        <p>Preço de venda</p>
+                          <p className={style.PrecoDeVenda}> R$ {doce.preco_de_venda}</p>
+                      </div>
                       </div>
                     </div>
                   </div>

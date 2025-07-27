@@ -1,3 +1,5 @@
+import { never } from "zod"
+
 export interface despesaDivProps {
     className?: string,
     id?: string,
@@ -6,4 +8,9 @@ export interface despesaDivProps {
     placeholder?: string,
     errorMsg?: string
 
+}
+
+export interface iDespesa {
+    name: string,
+    valor: number
 }

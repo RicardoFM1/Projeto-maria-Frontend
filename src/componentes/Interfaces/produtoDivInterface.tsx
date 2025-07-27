@@ -7,3 +7,9 @@ export interface produtoDivProps {
     errorMsg?: string
 
 }
+
+export interface iProduto {
+    name: string,
+    preco_de_custo: number,
+    preco_de_venda: number
+}

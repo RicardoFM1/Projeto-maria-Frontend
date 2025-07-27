@@ -17,7 +17,7 @@
   border: none;
   border-radius: 12px;
   height: 60px;
-  width: 20%;
+  width: 50%;
   border-left: 4px solid #ff6b6b;
   transition: all 0.3s ease;
 }
@@ -29,8 +29,6 @@
   gap: 12px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 .add,
@@ -40,4 +38,119 @@
   border-radius: 5px;
   margin-bottom: -8px;
   margin-right: 12px;
+}
+.divBtnAddDespesa{
+  display: flex;
+  justify-content: center;
+  width: 48%;
+}
+.divDespesa{
+  display: flex;
+  width: 48%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-right: 20px;
+}
+.caixaDespesa{
+  display: flex;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #ff6b6b;
+  background-color: #f8f9fa;
+  padding: 24px;
+  gap: 20px;
+  justify-content: space-between;
+  transition: all 0.3s ease 
+}
+
+.caixaDespesa:hover{
+  transform: translateY(-5px);
+}
+.valorDespesa{
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  gap: 12px;
+}
+.Valor{
+  color: #fe6d6b;
+  font-weight: 600;
+  font-size: 18px;  
+}
+.valoresProduto{
+  display: flex;
+  justify-content: center;
+}
+.Despesas h2{
+  margin-bottom: 20px;
+}
+
+.caixaProdutos:nth-child(1){
+  color: rgb(83, 83, 83);
+  display: flex;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  align-items: center;
+}
+@media (max-width: 1240px){
+  .caixaDespesa{
+    justify-content: space-between;
+    width: 100%;
+  }
+  .divDespesa{
+    width: 100%;
+  }
+  .caixaDespesa:nth-child(1){
+    align-items: center;
+    color: rgb(83, 83, 83);
+    font-size: 17px;
+  }
+  .divBtnAddDespesa{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+}
+@media (max-width: 660px){
+    .divBtnAddDespesa{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+    }
+}
+@media (max-width: 480px){
+    .caixaDespesa{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+}
+@media (max-width: 380px){
+  .caixaDespesa{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 325px){
+  .caixaDespesa{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .Valor{
+    justify-content: center;
+  }
+  .divBtnAddDespesa{
+    width: 100%;
+  }
+  .adicionar{
+    width: 100%;
+  }
 }

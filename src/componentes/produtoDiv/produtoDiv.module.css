@@ -61,8 +61,12 @@
   background-color: #f8f9fa;
   padding: 10px;
   gap: 20px;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
-
+.caixaProdutos:hover{
+  transform: translateY(-5px);
+}
 .valoresProduto{
   display: flex;
   flex-direction: column;
@@ -71,20 +75,20 @@
 }
 .PrecoDeCusto {
   color: #fe6d6b;
-  
+  font-weight: 600;
 }
 .PrecoDeVenda{
-  color: rgb(45, 179, 45)
+  color: rgb(45, 179, 45);
+  font-weight: 600;
 }
-
+.valoresProduto{
+  display: flex;
+  justify-content: center;
+}
 .Produtos h2{
   margin-bottom: 20px;
 }
-.caixaProdutos p{
-  display: flex;
-  text-align: center;
-  margin-right: 12px;
-}
+
 .caixaProdutos:nth-child(1){
   color: rgb(83, 83, 83);
   display: flex;
