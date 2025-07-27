@@ -1,99 +1,45 @@
-import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
-import { apiController } from "../../controller/api.controller";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import {
-  CreateVendaSchema,
-  type iCreateVenda,
-} from "../../schemas/venda.schemas";
-import { Input } from "../input/input";
-import { toast } from "react-toastify";
-import { apiResVendasPost } from "../apiRes/apiResVendas";
+import { FormRegistro } from "../input/formRegistro";
+import { Produto } from "../produtoDiv/produtoDiv";
+import { Despesa } from "../despesaDiv/despesaDiv";
 
 
 export const ConteudoPrincipal = () => {
-  const [doces, setDoces] = useState([]);
-  const getDoces = async () => {
-    const apiRes = await apiController.get("/doces");
-    setDoces(apiRes.data);
-  };
-  const [vendas, setVendas] = useState([]);
-  const getVendas = async () => {
-    const apiRes = await apiController.get("/vendas");
-    setVendas(apiRes.data);
-  };
-  type Registro = {
-    Produto: string;
-    Quantidade: number;
-  };
+  // const [doces, setDoces] = useState([]);
+  // const getDoces = async () => {
+  //   const apiRes = await apiResProdutoGet();
+  //   setDoces(apiRes.data);
+  // };
+  // const [vendas, setVendas] = useState([]);
+  // const getVendas = async () => {
+  //   const apiRes = await apiController.get("/vendas");
+  //   setVendas(apiRes.data);
+  // };
 
-  const [registros, setRegistros] = useState<Registro[]>([
-    { Produto: "", Quantidade: 0 },
-  ]);
-  const [showRemove, setShowRemove] = useState(true);
 
-  useEffect(() => {
-    getVendas();
-  }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(vendas);
-    }, 3000);
-  }, [vendas]);
-  useEffect(() => {
-    getDoces();
-  }, []);
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(doces);
-    }, 3000);
-  }, [doces]);
 
-  useEffect(() => {
-    if (registros.length <= 1) {
-      setShowRemove(false);
-      setTimeout(() => setShowRemove(false), 300);
-    } else {
-      setShowRemove(true);
-    }
-  }, [registros]);
 
-  const AdicionarRegistro = () => {
-    console.log("registroAdd");
-    setRegistros([...registros, { Produto: "", Quantidade: 0 }]);
-  };
+  // useEffect(() => {
+  //   getVendas();
+  //   getDoces();
+  // }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log(vendas);
+  //   }, 3000);
+  // }, [vendas]);
 
-  const RemoverRegistro = () => {
-    if (registros.length > 1) {
-      setRegistros(registros.slice(0, -1));
-    }
-  };
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<iCreateVenda>({
-    mode: "onSubmit",
-    resolver: zodResolver(CreateVendaSchema),
-  });
-  const cadastrarVenda = async (vendaData: iCreateVenda) => {
-    console.log(vendaData, "vendaData");
-
-    try {
-      const apiRes = await apiResVendasPost(vendaData);
-      console.log(apiRes);
-      if (apiRes.data) {
-        toast.success("Venda cadastrada com sucesso!");
-      }
-    } catch (errors: any) {
-      console.log(errors, "erro");
-      toast.error(errors.response.data.message);
-    }
-  };
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     console.log(doces);
+  //   }, 3000);
+  // }, [doces]);
   
+
+
+  
+
 
   return (
     <>
@@ -122,94 +68,12 @@ export const ConteudoPrincipal = () => {
               Registrar Venda
             </h2>
 
-            <form
-              className={style.formRegistro}
-              onSubmit={handleSubmit(cadastrarVenda)}
-            >
-              {registros.map((_registro, index) => (
-                <div key={index} className={style.inputsRegistrar}>
-                  <div className={style.caixapp}>
-                    <label>Produto</label>
-                    <div>
-                      <Input
-                        type="text"
-                        placeholder="ex: Cupcake"
-                        register={register("produto", {})}
-                        className={style.inputProduto}
-                        label={""}
-                        errorMsg={errors.produto && errors.produto.message}
-                        list="produtos"
-                      />
-                    </div>
-                  </div>
-
-                  <div className={style.caixapp2}>
-                    <label>Quantidade</label>
-                    <Input
-                      type="number"
-                      placeholder="ex: 5"
-                      register={register("quantidade", {
-                        valueAsNumber: true,
-                        required: "O campo quantidade precisa ser preenchido!",
-                        validate: (value) => {
-                          if (isNaN(value)) {
-                            return "Precisa ser um número";
-                          }
-
-                          return true;
-                        },
-                      })}
-                      className={style.inputQuantidade}
-                      label={""}
-                      errorMsg={errors.quantidade && errors.quantidade.message}
-                    />
-                  </div>
-                </div>
-              ))}
+          <FormRegistro/>
 
 
-              <button
-                onClick={AdicionarRegistro}
-                className={style.adicionarRegistro}
-                id="addRegistro"
-              >
-                <Iconify
-                  ClassName={style.add}
-                  icon="streamline:add-1-solid"
-                  width={24}
-                  height={24}
-                />
-                Adicionar
-              </button>
+              
 
-              <div
-                className={`${style.removerRegistroAnim} ${
-                  showRemove ? "" : style.removerRegistroAnimEscondido
-                }`}
-              >
-                <button
-                  onClick={RemoverRegistro}
-                  className={style.removerRegistro}
-                  id="removeRegistro"
-                >
-                  <Iconify
-                    ClassName={style.remove}
-                    icon="material-symbols:remove-rounded"
-                    width={24}
-                    height={24}
-                  />
-                  Remover
-                </button>
-              </div>
-
-              <button
-                type="submit"
-                className={style.registrar}
-                id="btnRegistrarVenda"
-              >
-                registrar venda
-              </button>
-            </form>
+              
           </div>
           <div className={style.resumoHoje}>
             <h2>
@@ -259,34 +123,9 @@ export const ConteudoPrincipal = () => {
             </div>
           </div>
         </div>
-        <div className={style.Produtos}>
-          <h2>produtos</h2>
-          <div className={style.caixaT}>
-            <button className={style.adicionar} id="addProdutos">
-              <Iconify
-                ClassName={style.add}
-                icon="streamline:add-1-solid"
-                width={24}
-                height={24}
-              />
-              Adicionar
-            </button>
-          </div>
-        </div>
-        <div className={style.custosMensais}>
-          <h2>Custos mensais</h2>
-          <div className={style.caixaT}>
-            <button className={style.adicionar} id="addProdutos">
-              <Iconify
-                ClassName={style.add}
-                icon="streamline:add-1-solid"
-                width={24}
-                height={24}
-              />
-              adicionar
-            </button>
-          </div>
-        </div>
+      <Produto divType="Produto" />
+       
+       <Despesa divType="Despesa" />
       </div>
     </>
   );

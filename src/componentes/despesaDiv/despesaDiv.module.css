@@ -1,0 +1,42 @@
+.custosMensais {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 42px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.custosMensais:hover {
+  transform: translateY(-5px);
+}
+.adicionar {
+  border: none;
+  border-radius: 12px;
+  height: 60px;
+  width: 20%;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+}
+.adicionar:hover {
+  transform: translateY(-5px);
+}
+.caixaT {
+  width: 100%;
+  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.add,
+.remove {
+  background-color: #f05c2e;
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: -8px;
+  margin-right: 12px;
+}

@@ -3,7 +3,7 @@ import { ReturnDoceSchema } from "./doce.schemas"
 
 
 export const CreateVendaSchema = z.object({
-    produto: z.string().min(1, "Precisa ser preenchido"),
+    produto: z.string().min(1, "Precisa ser preenchido").toLowerCase(),
     quantidade:z.number().refine(val => !isNaN(val), {message: "Precisa ser preenchido"}).positive(
         "Precisa ser maior que 0"
     )

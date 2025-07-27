@@ -13,12 +13,17 @@ export const apiResVendasGet = async() => {
     return resApi
 }
 
-export const apiResVendasPatch = async(vendaId:iCreateVenda) => {
-    const resApi = await apiController.patch(`/vendas/${vendaId}`)
+export const apiResVendasGetById = async(vendaId:string) => {
+    const resApi = await apiController.get(`/vendas/${vendaId}`)
     return resApi
 }
 
-export const apiResVendasDelete = async(vendaId:any) => {
-    const resApi = await apiController.get(`/vendas/${vendaId}`)
+export const apiResVendasPatch = async(vendaId:string, vendaData:iCreateVenda) => {
+    const resApi = await apiController.patch(`/vendas/${vendaId}`, vendaData)
+    return resApi
+}
+
+export const apiResVendasDelete = async(vendaId:string) => {
+    const resApi = await apiController.delete(`/vendas/${vendaId}`)
     return resApi
 }
