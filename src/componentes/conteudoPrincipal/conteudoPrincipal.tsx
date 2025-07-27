@@ -1,40 +1,13 @@
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
-import { FormRegistro } from "../input/formRegistro";
+import { FormRegistro } from "../registro/formRegistro";
 import { Produto } from "../produtoDiv/produtoDiv";
 import { Despesa } from "../despesaDiv/despesaDiv";
 
 
+
 export const ConteudoPrincipal = () => {
-  // const [doces, setDoces] = useState([]);
-  // const getDoces = async () => {
-  //   const apiRes = await apiResProdutoGet();
-  //   setDoces(apiRes.data);
-  // };
-  // const [vendas, setVendas] = useState([]);
-  // const getVendas = async () => {
-  //   const apiRes = await apiController.get("/vendas");
-  //   setVendas(apiRes.data);
-  // };
 
-
-
-
-  // useEffect(() => {
-  //   getVendas();
-  //   getDoces();
-  // }, []);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log(vendas);
-  //   }, 3000);
-  // }, [vendas]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     console.log(doces);
-  //   }, 3000);
-  // }, [doces]);
   
 
 
