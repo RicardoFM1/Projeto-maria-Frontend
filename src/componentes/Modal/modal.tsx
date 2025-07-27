@@ -136,7 +136,7 @@ export const ModalDespesa = ({ isOpen }: ModalProps) => {
     try {
       const apiRes = await apiResDespesaPost(despesaData);
       if (apiRes.data) {
-        toast.success("Produto cadastrado com sucesso");
+        toast.success("Despesa cadastrada com sucesso");
       }
     } catch (errors: any) {
       toast.error(
