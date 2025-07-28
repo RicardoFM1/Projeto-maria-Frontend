@@ -4,11 +4,9 @@ import { FormRegistro } from "../counteudos/registro/formRegistro";
 import { Produto } from "../counteudos/produtoDiv/produtoDiv";
 import { Despesa } from "../counteudos/despesaDiv/despesaDiv";
 import { Venda } from "../counteudos/vendasDiv/vendasDiv";
-
-
+import { Resumo } from "../counteudos/resumoDiv/resumoDiv";
 
 export const ConteudoPrincipal = () => {
-
   return (
     <>
       <div className={style.divPrincipal}>
@@ -36,44 +34,13 @@ export const ConteudoPrincipal = () => {
               Registrar Venda
             </h2>
 
-          <FormRegistro/>
-
-
-              
-
-              
+            <FormRegistro />
           </div>
-          <div className={style.resumoHoje}>
-            <h2>
-              <Iconify
-                ClassName={style.graph}
-                icon="noto-v1:money-bag"
-                width={24}
-                height={24}
-              />{" "}
-              Resumo de hoje
-            </h2>
-            <div className={style.caixaStatus}>
-              <div className={style.resumoStatus}>
-                <p>0</p>
-                <p className={style.pStatus}>Produtos vendidos</p>
-              </div>
-              <div className={style.resumoStatus}>
-                <p>R$0,00</p>
-                <p className={style.pStatus}>Faturamento</p>
-              </div>
-
-              <div className={style.resumoStatus}>
-                <p>R$0,00</p>
-                <p className={style.pStatus}>Lucro</p>
-              </div>
-            </div>
-            <p className={style.vendasHoje}>vendas de hoje</p>
-          </div>
+            <Resumo divType="Resumo"/>
         </div>
-        <Venda divType="Venda" /> 
+        <Venda divType="Venda" />
         <Produto divType="Produto" />
-       
+
         <Despesa divType="Despesa" />
       </div>
     </>

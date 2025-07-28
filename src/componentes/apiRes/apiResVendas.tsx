@@ -13,6 +13,11 @@ export const apiResVendasGet = async() => {
     return resApi
 }
 
+export const apiResVendasResumoGet = async() => {
+    const resApi = await apiController.get("/vendas/resumo")
+    return resApi
+}
+
 export const apiResVendasGetById = async(vendaId:string) => {
     const resApi = await apiController.get(`/vendas/${vendaId}`)
     return resApi
