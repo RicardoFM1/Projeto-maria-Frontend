@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Iconify } from "../iconify/iconify";
-import type { iProduto, produtoDivProps } from "../Interfaces/produtoDivInterface";
+import type {
+  iProduto,
+  produtoDivProps,
+} from "../Interfaces/produtoDivInterface";
 import { ModalProduto } from "../Modal/modal";
 import style from "./produtoDiv.module.css";
 import { apiResProdutoGet } from "../apiRes/apiResProdutos";
@@ -20,7 +23,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
 
   useEffect(() => {
     setTimeout(() => {
-      getDoces()
+      getDoces();
     }, 3000);
   }, [doces]);
 
@@ -34,39 +37,67 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
               <>
                 <div className={style.divProdutos}>
                   <div className={style.caixaProdutos}>
-                   
-                    <p>{doce.name}</p>
+                    <p className={style.nomeProduto}>
+                      <Iconify
+                        ClassName={style.carrinhoProduto}
+                        icon="game-icons:shopping-cart"
+                        width={24}
+                        height={24}
+                      />
+                        {doce.name}
+                    </p>
 
                     <div className={style.valoresProduto}>
                       <div className={style.divPrecoDeCusto}>
-                        <p>Preço de custo</p> 
-                          <p className={style.PrecoDeCusto}> R$ {doce.preco_de_custo}</p>
+                        <p className={style.tituloCusto}>
+                          <Iconify
+                            ClassName={style.carteiraCusto}
+                            icon="mingcute:wallet-2-fill"
+                            width={24}
+                            height={24}
+                          />
+                          Preço de custo
+                        </p>
+                        <p className={style.PrecoDeCusto}>
+                          R$ {doce.preco_de_custo}
+                        </p>
                       </div>
                       <div className={style.divPrecoDeVenda}>
-                        <p>Preço de venda</p>
-                          <p className={style.PrecoDeVenda}> R$ {doce.preco_de_venda}</p>
-                      </div>
+                        <p className={style.tituloGanho}>
+                          <Iconify
+                            ClassName={style.carteiraGanho}
+                            icon="mingcute:wallet-2-fill"
+                            width={24}
+                            height={24}
+                          />
+                          Preço de venda
+                        </p>
+                        <p className={style.PrecoDeVenda}>
+                          R$ {doce.preco_de_venda}
+                        </p>
                       </div>
                     </div>
                   </div>
-               
+                </div>
               </>
             ))}
             <div className={style.divBtnAddProdutos}>
-            <button
-              onClick={() => setIsOpen(true)}
-              className={style.adicionar}
-              id="addProdutos"
-            >
-              <Iconify
-                ClassName={style.add}
-                icon="streamline:add-1-solid"
-                width={24}
-                height={24}
-              />
-              Adicionar
-            </button>
-          </div>
+              <button
+                onClick={() =>
+                  isOpen === false ? setIsOpen(true) : setIsOpen(false)
+                }
+                className={style.adicionar}
+                id="addProdutos"
+              >
+                <Iconify
+                  ClassName={style.add}
+                  icon="streamline:add-1-solid"
+                  width={24}
+                  height={24}
+                />
+                Adicionar
+              </button>
+            </div>
           </div>
           {divType === "Produto" ? <ModalProduto isOpen={isOpen} /> : null}
         </div>

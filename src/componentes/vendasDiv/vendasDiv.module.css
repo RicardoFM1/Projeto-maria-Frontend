@@ -1,0 +1,62 @@
+.vendas {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  margin: 42px;
+  transition: all 0.3s ease;
+  padding: 16px;
+}
+.vendas:hover {
+  transform: translateY(-5px);
+}
+.tituloVendas {
+  margin-bottom: 20px;
+}
+.caixaVenda {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  padding: 24px;
+  border-left: 4px solid #ff6b6b;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.caixaVenda:hover {
+  transform: translateY(-5px);
+}
+.caixasVenda {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.divTotal,
+.divLucro {
+  display: flex;
+}
+.nomeProduto, .Total, .Lucro, .Data {
+  color: rgb(83, 83, 83);
+  display: flex;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  align-items: center;
+  gap: 8px;
+}
+.carteiraTotal {
+  color: rgb(45, 179, 45);
+}
+@media (max-width: 680px){
+    .barra{
+        display: none;
+    }
+}
+@media (max-width: 425px){
+.nomeProduto, .Total, .Lucro, .Data {
+  font-size: 14px;
+}
+.caixaVenda{
+    flex-direction: column;
+}
+}

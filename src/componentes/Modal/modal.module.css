@@ -36,7 +36,7 @@ label{
   color: white; 
   font-weight: 900;
   transition: all 0.3s ease;
-    background: linear-gradient(to right, #fd6965, #f05c2e);
+  background: linear-gradient(to right, #fd6965, #f05c2e);
 }
 .modalProduto, .modalDespesa{
     font-family: Arial, Helvetica, sans-serif;
@@ -50,6 +50,7 @@ label{
     flex-direction: column;
     transition: all 0.3s ease;
     gap: 20px;
+
 }
 .divModal{
     display: flex;
@@ -58,6 +59,9 @@ label{
 }
 
 .modalProduto:hover {
+  transform: translateY(-5px);
+}
+.cadastrarDoceSubmit:hover, .cadastrarDespesaSubmit:hover{
   transform: translateY(-5px);
 }
 .formProduto, .formDespesa{

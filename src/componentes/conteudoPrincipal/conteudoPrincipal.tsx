@@ -3,16 +3,11 @@ import style from "./conteudoPrincipal.module.css";
 import { FormRegistro } from "../registro/formRegistro";
 import { Produto } from "../produtoDiv/produtoDiv";
 import { Despesa } from "../despesaDiv/despesaDiv";
+import { Venda } from "../vendasDiv/vendasDiv";
 
 
 
 export const ConteudoPrincipal = () => {
-
-  
-
-
-  
-
 
   return (
     <>
@@ -76,29 +71,10 @@ export const ConteudoPrincipal = () => {
             <p className={style.vendasHoje}>vendas de hoje</p>
           </div>
         </div>
-        <div className={style.vendas}>
-          <h2>vendas</h2>
-          <div className={style.caixaVenda}>
-            <div className={style.caixaVendaPrincipal}>
-              <div className={style.caixaVendaSecundaria}>
-                <p>24x</p>
-                <p>cupcake</p>
-              </div>
-              <div className={style.caixaVendaTerciaria}>
-                <p>Faturamento</p>
-                <p>Faturamento total:</p>
-                <p>lucro</p>
-              </div>
-            </div>
-            <div className={style.caixaData}>data:</div>
-            <div className={style.caixaTFL}>
-              <p className={style.totalP}>total:</p> Faturamento: lucro:
-            </div>
-          </div>
-        </div>
-      <Produto divType="Produto" />
+        <Venda divType="Venda" /> 
+        <Produto divType="Produto" />
        
-       <Despesa divType="Despesa" />
+        <Despesa divType="Despesa" />
       </div>
     </>
   );

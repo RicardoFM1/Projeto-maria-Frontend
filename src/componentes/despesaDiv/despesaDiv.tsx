@@ -49,7 +49,10 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
             ))}
             <div className={style.divBtnAddDespesa}>
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={() => isOpen === false ? setIsOpen(true)
+                : setIsOpen(false)
+
+              }
               className={style.adicionar}
               id="addDespesa"
             >
