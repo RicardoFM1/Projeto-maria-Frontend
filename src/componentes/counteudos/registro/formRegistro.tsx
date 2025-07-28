@@ -2,11 +2,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import type { iCreateVenda } from "../../schemas/venda.schemas";
-import { CreateVendaSchema } from "../../schemas/venda.schemas";
-import { apiResVendasPost } from "../apiRes/apiResVendas";
-import { Iconify } from "../iconify/iconify";
-import type { inputProps, Registro } from "../Interfaces/registroInterface";
+import type { iCreateVenda } from "../../../schemas/venda.schemas";
+import { CreateVendaSchema } from "../../../schemas/venda.schemas";
+import { apiResVendasPost } from "../../apiRes/apiResVendas";
+import { Iconify } from "../../iconify/iconify";
+import type { inputProps, Registro } from "../../Interfaces/registroInterface";
 import style from "./formRegistro.module.css";
 
 

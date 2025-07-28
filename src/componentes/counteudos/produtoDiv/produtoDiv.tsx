@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Iconify } from "../iconify/iconify";
+import { Iconify } from "../../iconify/iconify";
 import type {
   iProduto,
   produtoDivProps,
-} from "../Interfaces/produtoDivInterface";
-import { ModalProduto } from "../Modal/modal";
+} from "../../Interfaces/produtoDivInterface";
+import { ModalProduto } from "../../Modal/modalProduto"
 import style from "./produtoDiv.module.css";
-import { apiResProdutoGet } from "../apiRes/apiResProdutos";
+import { apiResProdutoGet } from "../../apiRes/apiResProdutos";
 
 export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Iconify } from "../iconify/iconify";
-import type { despesaDivProps, iDespesa } from "../Interfaces/despesaDivInterface";
-import { ModalDespesa } from "../Modal/modal";
+import { Iconify } from "../../iconify/iconify";
+import type { despesaDivProps, iDespesa } from "../../Interfaces/despesaDivInterface";
+import { ModalDespesa } from "../../Modal/modalDespesa";
 import style from "./despesaDiv.module.css";
-import { apiResDespesaGet } from "../apiRes/apiResDespesa";
+import { apiResDespesaGet } from "../../apiRes/apiResDespesa";
 
 export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
   const [isOpen, setIsOpen] = useState(false);

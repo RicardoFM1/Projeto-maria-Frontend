@@ -1,9 +1,9 @@
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
-import { FormRegistro } from "../registro/formRegistro";
-import { Produto } from "../produtoDiv/produtoDiv";
-import { Despesa } from "../despesaDiv/despesaDiv";
-import { Venda } from "../vendasDiv/vendasDiv";
+import { FormRegistro } from "../counteudos/registro/formRegistro";
+import { Produto } from "../counteudos/produtoDiv/produtoDiv";
+import { Despesa } from "../counteudos/despesaDiv/despesaDiv";
+import { Venda } from "../counteudos/vendasDiv/vendasDiv";
 
 
 

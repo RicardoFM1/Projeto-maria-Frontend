@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { Iconify } from "../iconify/iconify";
+import { Iconify } from "../../iconify/iconify";
 import style from "./vendasDiv.module.css";
-import type { iVenda, vendaDivProps } from "../Interfaces/vendasDivInterface";
-import { apiResVendasGet } from "../apiRes/apiResVendas";
+import type { iVenda, vendaDivProps } from "../../Interfaces/vendasDivInterface";
+import { apiResVendasGet } from "../../apiRes/apiResVendas";
 
 export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
-//   const [isOpen, setIsOpen] = useState(false);
 
   const [venda, setVenda] = useState([] as any);
   const getVenda = async () => {
