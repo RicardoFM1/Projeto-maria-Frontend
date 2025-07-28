@@ -7,9 +7,7 @@ import { toast } from "react-toastify";
 import { CreateDespesaSchema} from "../../schemas/despesa.schemas";
 import type {iCreateDespesa } from "../../schemas/despesa.schemas";
 import { apiResDespesaPost } from "../apiRes/apiResDespesa";
-import { useEffect, useState } from "react";
-import { CreateVendaSchema, type iCreateVenda } from "../../schemas/venda.schemas";
-import { apiResVendasPatch, apiResVendasPost } from "../apiRes/apiResVendas";
+
 
 interface ModalProps {
   isOpen: true | false;
