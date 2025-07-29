@@ -60,3 +60,26 @@
     flex-direction: column;
 }
 }
+.atualizar {
+  border: none;
+  border-radius: 12px;
+  height: 60px;
+  width: 50%;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+}
+.atualizar:hover {
+  transform: translateY(-5px);
+}
+.iconAtualizar{
+  background-color: #f05c2e;
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: -8px;
+  margin-right: 12px;
+}
+.divBtnAtualizarProdutos {
+  display: flex;
+  justify-content: center;
+  width: 48%;
+}

@@ -3,9 +3,11 @@ import { Iconify } from "../../iconify/iconify";
 import style from "./vendasDiv.module.css";
 import type { iVenda, vendaDivProps } from "../../Interfaces/vendasDivInterface";
 import { apiResVendasGet } from "../../apiRes/apiResVendas";
+import { ModalAtualizarVendas } from "../../Modal/modalVenda";
 
 export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
   const [mostrarTudo, setMostrarTudo] = useState(false);
+  const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
   const [venda, setVenda] = useState([] as iVenda[]);
   const limiteExibicao = 5;
 
@@ -103,6 +105,22 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
               </div>
             )}
           </div>
+          <div className={style.divBtnAtualizarVendas}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarVendas"
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                  width={24}
+                  height={24}
+                />
+                Atualizar
+              </button>
+            </div>
+          {isOpenAtualizar && <ModalAtualizarVendas isOpen={isOpenAtualizar} />}
         </div>
       ) : (
         <p>Nada de vendas</p>
@@ -112,6 +130,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
       ) : (
         <span></span>
       )}
+      
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Iconify } from "../../iconify/iconify";
 import type { iProduto, produtoDivProps } from "../../Interfaces/produtoDivInterface";
-import { ModalProduto } from "../../Modal/modalProduto";
+import { ModalAtualizarProduto, ModalProduto } from "../../Modal/modalProduto";
 import style from "./produtoDiv.module.css";
 import { apiResProdutoGet } from "../../apiRes/apiResProdutos";
 
 export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
   const [doces, setDoces] = useState([] as iProduto[]);
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const limiteExibicao = 5;
@@ -109,9 +110,26 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                 Adicionar
               </button>
             </div>
+             <div className={style.divBtnAtualizarProdutos}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarProdutos"
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                  width={24}
+                  height={24}
+                />
+                Atualizar
+              </button>
+            </div>
           </div>
+          
 
           {isOpen && <ModalProduto isOpen={isOpen} />}
+          {isOpenAtualizar && <ModalAtualizarProduto isOpen={isOpenAtualizar} />}
         </div>
       ) : null}
 

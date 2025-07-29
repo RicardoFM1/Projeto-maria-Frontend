@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Iconify } from "../../iconify/iconify";
 import type { despesaDivProps, iDespesa } from "../../Interfaces/despesaDivInterface";
-import { ModalDespesa } from "../../Modal/modalDespesa";
+import { ModalAtualizarDespesa, ModalDespesa } from "../../Modal/modalDespesa";
 import style from "./despesaDiv.module.css";
 import { apiResDespesaGet } from "../../apiRes/apiResDespesa";
 
 export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
   const [despesa, setDespesa] = useState([] as iDespesa[]);
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const limiteExibicao = 5;
@@ -78,9 +79,26 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
                 Adicionar
               </button>
             </div>
+             <div className={style.divBtnAtualizarDespesas}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarProdutos"
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                  width={24}
+                  height={24}
+                />
+                Atualizar
+              </button>
+            </div>
+        
           </div>
 
           {isOpen && <ModalDespesa isOpen={isOpen} />}
+          {isOpenAtualizar && <ModalAtualizarDespesa isOpen={isOpenAtualizar} />}
         </div>
       ) : null}
 
