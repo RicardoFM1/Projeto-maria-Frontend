@@ -34,12 +34,35 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
     <div className={style.vendasTotais}>
       {divType === "Venda" ? (
         <div className={style.vendas}>
-          <div className={style.tituloVendas}>
+          <div className={style.headerVendas}>
             <h2>Vendas</h2>
-            <button onClick={() => setMostrarTudo(!mostrarTudo)}>
-              {mostrarTudo ? "Mostrar menos" : "Mostrar mais"}
+            <div className={style.divFuncoes}>
+            <div className={style.divBtnAtualizarVendas}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarVendas"  
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                 
+                />
+                
+              </button>
+            </div>
+            
+
+            <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
+              {mostrarTudo ? 
+               <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>
+              }
             </button>
+              
+              </div>
           </div>
+              {isOpenAtualizar && <ModalAtualizarVendas isOpen={isOpenAtualizar} />}
           <div className={style.caixasVenda}>
             {vendasVisiveis.map((venda: iVenda) => (
               <div key={venda.id} className={style.caixaVenda}>
@@ -48,8 +71,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                     <Iconify
                       ClassName={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
-                      width={24}
-                      height={24}
+                      
                     />
                     {venda.produto.name} ({venda.quantidade} un)
                   </p>
@@ -61,8 +83,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                     <Iconify
                       ClassName={style.iconData}
                       icon="noto-v1:calendar"
-                      width={24}
-                      height={24}
+                     
                     />
                     {venda.data_da_venda}
                   </p>
@@ -73,8 +94,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                     <Iconify
                       ClassName={style.carteiraTotal}
                       icon="mingcute:wallet-2-fill"
-                      width={24}
-                      height={24}
+                      
                     />
                     <strong>Total:</strong> R$ {venda.total_vendido}
                   </p>
@@ -85,8 +105,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                     <Iconify
                       ClassName={style.iconLucro}
                       icon="fxemoji:stockchart"
-                      width={24}
-                      height={24}
+                      
                     />
                     <strong>Lucro: </strong> R$ {venda.total_lucro}
                   </p>
@@ -105,22 +124,8 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
               </div>
             )}
           </div>
-          <div className={style.divBtnAtualizarVendas}>
-              <button
-                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
-                className={style.atualizar}
-                id="atualizarVendas"
-              >
-                <Iconify
-                  ClassName={style.iconAtualizar}
-                  icon="stash:pencil-writing-light"
-                  width={24}
-                  height={24}
-                />
-                Atualizar
-              </button>
-            </div>
-          {isOpenAtualizar && <ModalAtualizarVendas isOpen={isOpenAtualizar} />}
+          
+          
         </div>
       ) : (
         <p>Nada de vendas</p>

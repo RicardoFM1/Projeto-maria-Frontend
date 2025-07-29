@@ -16,9 +16,7 @@
 .adicionar, .atualizar {
   border: none;
   border-radius: 12px;
-  height: 60px;
-  width: 50%;
-  border-left: 4px solid #ff6b6b;
+  background: none;
   transition: all 0.3s ease;
 }
 .adicionar:hover, .atualizar:hover {
@@ -34,16 +32,10 @@
 .add,
 .iconAtualizar{
   background-color: #f05c2e;
-  padding: 3px;
   border-radius: 5px;
-  margin-bottom: -8px;
   margin-right: 12px;
 }
-.divBtnAddProdutos, .divBtnAtualizarProdutos {
-  display: flex;
-  justify-content: center;
-  width: 48%;
-}
+
 .divProdutos{
   display: flex;
   width: 48%;
@@ -85,9 +77,6 @@
   display: flex;
   justify-content: center;
 }
-.Produtos h2{
-  margin-bottom: 20px;
-}
 
 .nomeProduto{
   color: rgb(83, 83, 83);
@@ -110,19 +99,9 @@
     color: rgb(83, 83, 83);
     font-size: 17px;
   }
-  .divBtnAddProdutos{
-  display: flex;
-  justify-content: center;
-  width: 100%;
+
 }
-}
-@media (max-width: 660px){
-    .divBtnAddProdutos{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-    }
-}
+
 @media (max-width: 480px){
     .caixaProdutos{
     display: flex;
@@ -141,7 +120,7 @@
     flex-wrap: wrap;
   }
 }
-@media (max-width: 325px){
+@media (max-width: 350px){
   .caixaProdutos{
     display: flex;
     width: 100%;
@@ -150,13 +129,14 @@
   .PrecoDeCusto, .PrecoDeVenda{
     justify-content: center;
   }
-  .divBtnAddProdutos{
-    width: 100%;
+  .headerProdutos{
+    flex-direction: column;
   }
-  .adicionar{
-    width: 100%;
+  .valoresProduto{
+    flex-direction: column;
   }
 }
+
 .carteiraCusto{
   color: #fe6d6b;
   margin-right: 4px;
@@ -172,4 +152,16 @@
 }
 .carrinhoProduto{
   margin-right: 4px;
+}
+.headerProdutos{
+  display: flex;
+  justify-content: space-between;
+  padding: 12px
+}
+.btnMostrar{
+  background: none;
+  border: none;
+}
+.divFuncoes{
+  display: flex;
 }

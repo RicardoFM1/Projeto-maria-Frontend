@@ -9,9 +9,7 @@
 .vendas:hover {
   transform: translateY(-5px);
 }
-.tituloVendas {
-  margin-bottom: 20px;
-}
+
 .caixaVenda {
   width: 100%;
   display: flex;
@@ -60,12 +58,15 @@
     flex-direction: column;
 }
 }
+@media (max-width: 350px){
+  .headerVendas{
+    flex-direction: column;
+  }
+}
 .atualizar {
   border: none;
   border-radius: 12px;
-  height: 60px;
-  width: 50%;
-  border-left: 4px solid #ff6b6b;
+  background: none;
   transition: all 0.3s ease;
 }
 .atualizar:hover {
@@ -73,13 +74,20 @@
 }
 .iconAtualizar{
   background-color: #f05c2e;
-  padding: 3px;
   border-radius: 5px;
-  margin-bottom: -8px;
   margin-right: 12px;
 }
-.divBtnAtualizarProdutos {
-  display: flex;
-  justify-content: center;
-  width: 48%;
+
+.btnMostrar{
+  border: none;
+  background: none;
 }
+.divFuncoes{
+  display: flex;
+}
+.headerVendas{
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+

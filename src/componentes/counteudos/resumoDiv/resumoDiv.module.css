@@ -45,3 +45,51 @@
   color: #333333;
   font-weight: 600;
 }
+@media (max-width: 750px) {
+  .resumoHoje {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .caixaT {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .adicionar {
+    width: 30%;
+  }
+}
+@media (max-width: 550px) {
+  .caixaT {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .adicionar {
+    width: 48%;
+  }
+}
+@media (max-width: 490px) {
+  .caixaT {
+    width: 100%;
+  }
+  .adicionar {
+    width: 46%;
+  }
+}
+@media (max-width: 350px){
+  .resumoStatus{
+    text-align: center;
+  }
+}
+
+@media (max-width: 875px) {
+  .caixaStatus {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .resumoStatus {
+    width: 100%;
+  }
+}

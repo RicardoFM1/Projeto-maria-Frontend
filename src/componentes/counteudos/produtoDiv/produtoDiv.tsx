@@ -34,13 +34,50 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
     <div className={style.divProduto}>
       {divType === "Produto" ? (
         <div className={style.Produtos}>
-          <div className={style.tituloProdutos}>
+          <div className={style.headerProdutos}>
           <h2>Produtos</h2>
-          <button onClick={() => setMostrarTudo(!mostrarTudo)}>
-              {mostrarTudo ? "Mostrar menos" : "Mostrar mais"}
+         
+          <div className={style.divFuncoes}>
+          <div className={style.divBtnAddProdutos}>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className={style.adicionar}
+                id="addProdutos"
+              >
+                <Iconify
+                  ClassName={style.add}
+                  icon="streamline:add-1-solid"
+                  
+                />
+               
+              </button>
+            </div>
+            <div className={style.divBtnAtualizarProdutos}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarProdutos"
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                  
+                />
+                
+              </button>
+            </div>
+            
+           
+          <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
+              {mostrarTudo ? 
+              <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>}
             </button>
+          
+            </div>
           </div>
-
+ {isOpen && <ModalProduto isOpen={isOpen} />}
+          {isOpenAtualizar && <ModalAtualizarProduto isOpen={isOpenAtualizar} />}
           <div className={style.caixaT}>
             {docesVisiveis.map((doce: iProduto) => (
               <div key={doce.id} className={style.divProdutos}>
@@ -49,8 +86,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                     <Iconify
                       ClassName={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
-                      width={24}
-                      height={24}
+                      
                     />
                     {doce.name}
                   </p>
@@ -61,8 +97,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                         <Iconify
                           ClassName={style.carteiraCusto}
                           icon="mingcute:wallet-2-fill"
-                          width={24}
-                          height={24}
+                         
                         />
                         Preço de custo
                       </p>
@@ -73,8 +108,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                         <Iconify
                           ClassName={style.carteiraGanho}
                           icon="mingcute:wallet-2-fill"
-                          width={24}
-                          height={24}
+                          
                         />
                         Preço de venda
                       </p>
@@ -95,41 +129,12 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
               </div>
             )}
 
-            <div className={style.divBtnAddProdutos}>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={style.adicionar}
-                id="addProdutos"
-              >
-                <Iconify
-                  ClassName={style.add}
-                  icon="streamline:add-1-solid"
-                  width={24}
-                  height={24}
-                />
-                Adicionar
-              </button>
-            </div>
-             <div className={style.divBtnAtualizarProdutos}>
-              <button
-                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
-                className={style.atualizar}
-                id="atualizarProdutos"
-              >
-                <Iconify
-                  ClassName={style.iconAtualizar}
-                  icon="stash:pencil-writing-light"
-                  width={24}
-                  height={24}
-                />
-                Atualizar
-              </button>
-            </div>
+            
+             
           </div>
           
 
-          {isOpen && <ModalProduto isOpen={isOpen} />}
-          {isOpenAtualizar && <ModalAtualizarProduto isOpen={isOpenAtualizar} />}
+          
         </div>
       ) : null}
 

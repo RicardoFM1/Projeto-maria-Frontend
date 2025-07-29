@@ -34,11 +34,44 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
     <div className={style.custosMensais}>
       {divType === "Despesa" ? (
         <div className={style.Despesas}>
-          <div className={style.tituloDespesa}>
+          <div className={style.headerDespesa}>
           <h2>Custos mensais</h2>
-          <button onClick={() => setMostrarTudo(!mostrarTudo)}>
-              {mostrarTudo ? "Mostrar menos" : "Mostrar mais"}
+          <div className={style.divFuncoes}>
+            <div className={style.divBtnAddDespesa}>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className={style.adicionar}
+                id="addDespesa"
+              >
+                <Iconify
+                  ClassName={style.add}
+                  icon="streamline:add-1-solid"
+                
+                />
+                
+              </button>
+            </div>
+             <div className={style.divBtnAtualizarDespesas}>
+              <button
+                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
+                className={style.atualizar}
+                id="atualizarProdutos"
+              >
+                <Iconify
+                  ClassName={style.iconAtualizar}
+                  icon="stash:pencil-writing-light"
+                  
+                />
+                
+              </button>
+            </div>
+            
+          <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
+              {mostrarTudo ? 
+              <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>}
             </button>
+            </div>  
           </div>
           <div className={style.caixaT}>
             {despesasVisiveis.map((despesa: iDespesa) => (
@@ -64,36 +97,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
               </div>
             )}
 
-            <div className={style.divBtnAddDespesa}>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={style.adicionar}
-                id="addDespesa"
-              >
-                <Iconify
-                  ClassName={style.add}
-                  icon="streamline:add-1-solid"
-                  width={24}
-                  height={24}
-                />
-                Adicionar
-              </button>
-            </div>
-             <div className={style.divBtnAtualizarDespesas}>
-              <button
-                onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
-                className={style.atualizar}
-                id="atualizarProdutos"
-              >
-                <Iconify
-                  ClassName={style.iconAtualizar}
-                  icon="stash:pencil-writing-light"
-                  width={24}
-                  height={24}
-                />
-                Atualizar
-              </button>
-            </div>
+            
         
           </div>
 

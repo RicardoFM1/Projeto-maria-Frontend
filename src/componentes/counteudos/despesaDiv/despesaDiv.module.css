@@ -16,9 +16,7 @@
 .adicionar, .atualizar {
   border: none;
   border-radius: 12px;
-  height: 60px;
-  width: 50%;
-  border-left: 4px solid #ff6b6b;
+  background: none;
   transition: all 0.3s ease;
 }
 .adicionar:hover, .atualizar:hover {
@@ -34,16 +32,10 @@
 .add,
 .iconAtualizar {
   background-color: #f05c2e;
-  padding: 3px;
   border-radius: 5px;
-  margin-bottom: -8px;
   margin-right: 12px;
 }
-.divBtnAddDespesa, .divBtnAtualizarDespesas{
-  display: flex;
-  justify-content: center;
-  width: 48%;
-}
+
 .divDespesa{
   display: flex;
   width: 48%;
@@ -83,9 +75,6 @@
   display: flex;
   justify-content: center;
 }
-.Despesas h2{
-  margin-bottom: 20px;
-}
 
 .caixaDespesa:nth-child(1){
   color: rgb(83, 83, 83);
@@ -108,19 +97,9 @@
     color: rgb(83, 83, 83);
     font-size: 17px;
   }
-  .divBtnAddDespesa{
-  display: flex;
-  justify-content: center;
-  width: 100%;
+ 
 }
-}
-@media (max-width: 660px){
-    .divBtnAddDespesa{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-    }
-}
+
 @media (max-width: 480px){
     .caixaDespesa{
     display: flex;
@@ -138,7 +117,7 @@
     flex-wrap: wrap;
   }
 }
-@media (max-width: 325px){
+@media (max-width: 350px){
   .caixaDespesa{
     display: flex;
     width: 100%;
@@ -147,10 +126,22 @@
   .Valor{
     justify-content: center;
   }
-  .divBtnAddDespesa{
-    width: 100%;
-  }
   .adicionar{
     width: 100%;
   }
+  .headerDespesa{
+    flex-direction: column;
+  }
+}
+.divFuncoes{
+  display: flex;
+}
+.headerDespesa{
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+.btnMostrar{
+  border: none;
+  background: none;
 }
