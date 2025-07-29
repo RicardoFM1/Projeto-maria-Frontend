@@ -1,13 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { type iCreateDoce, CreateDoceSchema } from "../../schemas/doce.schemas";
 import { apiResProdutoPost } from "../apiRes/apiResProdutos";
 import type { ModalProps } from "./interfaceModal";
 import style from "./modal.module.css"
+import CurrencyInput from "react-currency-input-field";
 
 export const ModalProduto = ({ isOpen }: ModalProps) => {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -63,42 +65,65 @@ export const ModalProduto = ({ isOpen }: ModalProps) => {
             <label className={style.label} htmlFor="produto">
               Preço de custo
             </label>
-            <input
-              placeholder="ex: 5,00"
-              type="number"
-              className={style.inputProduto}
-              {...register("preco_de_custo", {
-                required: "Preco de custo obrigatório obrigatório",
-                valueAsNumber: true
-              }
-            )}
-            />
-              {errors.preco_de_custo && errors.preco_de_custo && (
-              <span className={style.errorMsg}>
-                {errors.preco_de_custo?.message}
-              </span>
-              
-            )}
+            <Controller
+  name="preco_de_custo"
+  control={control}
+  rules={{ required: "Preço de custo obrigatório" }}
+  render={({ field }) => (
+    <CurrencyInput
+      placeholder="ex: 12,99"
+      decimalsLimit={2}
+      decimalSeparator=","
+      groupSeparator="." 
+      prefix="R$ "
+      className={style.inputProduto}
+      defaultValue={(field.value ?? 0) / 100} 
+      onValueChange={(value) => {
+        const numericValue = value
+          ? Math.round(parseFloat(value.replace(',', '.')) * 100)
+          : 0;
+        field.onChange(numericValue); 
+      }}
+    />
+  )}
+/>
+{errors.preco_de_custo && (
+  <span className={style.errorMsg}>
+    {errors.preco_de_custo.message}
+  </span>
+)}
           </div >
           <div className={style.inputDiv}>
             <label className={style.label} htmlFor="produto">
               Preço de venda
             </label>
-            <input
-              placeholder="ex: 10,00"
-              type="number"
-              className={style.inputProduto}
-              {...register("preco_de_venda", {
-                required: "Preco de venda obrigatório",
-                valueAsNumber: true
-              })}
-            />
-            {errors.preco_de_venda && errors.preco_de_venda && (
-              <span className={style.errorMsg}>
-                {errors.preco_de_venda?.message}
-              </span>
-
-            )}
+           <Controller
+  name="preco_de_venda"
+  control={control}
+  rules={{ required: "Preço de venda obrigatório" }}
+  render={({ field }) => (
+    <CurrencyInput
+      placeholder="ex: 15,50"
+      decimalsLimit={2}
+      decimalSeparator=","
+      groupSeparator="."
+      prefix="R$ "
+      className={style.inputProduto}
+      defaultValue={(field.value ?? 0) / 100}
+      onValueChange={(value) => {
+        const numericValue = value
+          ? Math.round(parseFloat(value.replace(',', '.')) * 100)
+          : 0;
+        field.onChange(numericValue);
+      }}
+    />
+  )}
+/>
+{errors.preco_de_venda && (
+  <span className={style.errorMsg}>
+    {errors.preco_de_venda.message}
+  </span>
+)}
           </div>
           <button type="submit" className={style.cadastrarDoceSubmit}>
             Cadastrar produto

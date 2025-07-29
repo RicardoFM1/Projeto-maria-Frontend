@@ -1,11 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import style from "./modal.module.css";
 import { toast } from "react-toastify";
 import { CreateDespesaSchema} from "../../schemas/despesa.schemas";
 import type {iCreateDespesa } from "../../schemas/despesa.schemas";
 import { apiResDespesaPost } from "../apiRes/apiResDespesa";
 import type { ModalProps } from "./interfaceModal";
+import CurrencyInput from "react-currency-input-field";
 
 
 
@@ -14,6 +15,7 @@ import type { ModalProps } from "./interfaceModal";
 export const ModalDespesa = ({ isOpen }: ModalProps) => {
 
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -68,22 +70,28 @@ export const ModalDespesa = ({ isOpen }: ModalProps) => {
             <label className={style.label} htmlFor="valor">
               Valor
             </label>
-            <input
-              placeholder="ex: 100,00"
-              type="number"
-              className={style.inputDespesa}
-              {...register("valor", {
-                required: "valor obrigatório",
-                valueAsNumber: true
-              }
-            )}
-            />
-              {errors.valor && errors.valor && (
-              <span className={style.errorMsg}>
-                {errors.valor?.message}
-              </span>
-              
-            )}
+            <Controller
+  name="valor"
+  control={control}
+  rules={{ required: "valor obrigatório" }}
+  render={({ field }) => (
+    <CurrencyInput
+      placeholder="ex: 120,90"
+      decimalsLimit={2}
+      decimalSeparator=","
+      groupSeparator="." 
+      prefix="R$ "
+      className={style.inputProduto}
+      defaultValue={(field.value ?? 0) / 100} 
+      onValueChange={(value) => {
+        const numericValue = value
+          ? Math.round(parseFloat(value.replace(',', '.')) * 100)
+          : 0;
+        field.onChange(numericValue); 
+      }}
+    />
+  )}
+/>
           </div>
           <button type="submit" className={style.cadastrarDespesaSubmit}>
             Cadastrar despesa

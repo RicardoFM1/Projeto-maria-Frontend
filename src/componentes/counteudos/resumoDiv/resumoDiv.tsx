@@ -33,7 +33,7 @@ export const Resumo = ({ divType }: ResumoDivProps) => {
               width={24}
               height={24}
             />{" "}
-            Resumo de hoje
+            Resumo
           </h2>
         
              
@@ -52,7 +52,7 @@ export const Resumo = ({ divType }: ResumoDivProps) => {
               <p className={style.pStatus}>Lucro</p>
             </div>
           </div>
-          <p className={style.vendasHoje}>vendas de hoje</p>
+          
         
         </div>
       ) : null}
