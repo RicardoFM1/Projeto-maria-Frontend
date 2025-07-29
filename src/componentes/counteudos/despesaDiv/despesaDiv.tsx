@@ -72,7 +72,10 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
                :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>}
             </button>
             </div>  
+             
           </div>
+          {isOpen && <ModalDespesa isOpen={isOpen} />}
+          {isOpenAtualizar && <ModalAtualizarDespesa isOpen={isOpenAtualizar} />}
           <div className={style.caixaT}>
             {despesasVisiveis.map((despesa: iDespesa) => (
               <div key={despesa.id} className={style.divDespesa}>
@@ -101,8 +104,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
         
           </div>
 
-          {isOpen && <ModalDespesa isOpen={isOpen} />}
-          {isOpenAtualizar && <ModalAtualizarDespesa isOpen={isOpenAtualizar} />}
+         
         </div>
       ) : null}
 
