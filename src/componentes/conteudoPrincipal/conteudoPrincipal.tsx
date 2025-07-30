@@ -5,19 +5,36 @@ import { Produto } from "../counteudos/produtoDiv/produtoDiv";
 import { Despesa } from "../counteudos/despesaDiv/despesaDiv";
 import { Venda } from "../counteudos/vendasDiv/vendasDiv";
 import { Resumo } from "../counteudos/resumoDiv/resumoDiv";
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const ConteudoPrincipal = () => {
-  return (
-    <>
+  const [isLogged, SetIslogged] = useState(false)
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if(token){
+    SetIslogged(true)
+    }
+    else{
+    SetIslogged(false)
+    }
+    
+}, [Navigate])
+
+  if(isLogged){
+
+    return <div className={style.divBackground}>
+    
       <div className={style.divPrincipal}>
         <div className={style.divHeader}>
           <h1 className={style.title}>
             <Iconify
-              ClassName={style.cupcake}
+              className={style.cupcake}
               icon="openmoji:cupcake"
               width={42}
               height={42}
-            />
+              />
             Maria's cupcake
           </h1>
           <p className={style.pc}>Controle de Vendas e Lucros</p>
@@ -26,11 +43,11 @@ export const ConteudoPrincipal = () => {
           <div className={style.registrarVenda}>
             <h2>
               <Iconify
-                ClassName={style.graph}
+                className={style.graph}
                 icon="uis:graph-bar"
                 width={24}
                 height={24}
-              />
+                />
               Registrar Venda
             </h2>
 
@@ -43,6 +60,8 @@ export const ConteudoPrincipal = () => {
 
         <Despesa divType="Despesa" />
       </div>
-    </>
-  );
+
+   </div>
+
+}
 };

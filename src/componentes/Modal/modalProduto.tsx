@@ -156,7 +156,7 @@ export const ModalAtualizarProduto = ({ isOpen }: ModalProps) => {
 
   const atualizarProduto = async (doceData: iAtualizarDoce) => {
     try {
-      const apiRes = await apiResProdutoPatch(`/doces/${doceData.id}`, doceData);
+      const apiRes = await apiResProdutoPatch(doceData);
       if (apiRes.data) {
         toast.success("Produto atualizado com sucesso");
       }

@@ -44,7 +44,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 id="atualizarVendas"  
               >
                 <Iconify
-                  ClassName={style.iconAtualizar}
+                  className={style.iconAtualizar}
                   icon="stash:pencil-writing-light"
                  
                 />
@@ -55,8 +55,8 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
 
             <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
               {mostrarTudo ? 
-               <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
-               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>
+               <Iconify icon="ep:arrow-down-bold" className={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" className={style.arrowUp}/>
               }
             </button>
               
@@ -69,7 +69,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 <div className={style.divProduto}>
                   <p className={style.nomeProduto}>
                     <Iconify
-                      ClassName={style.carrinhoProduto}
+                      className={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
                       
                     />
@@ -81,7 +81,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 <div className={style.divData}>
                   <p className={style.Data}>
                     <Iconify
-                      ClassName={style.iconData}
+                      className={style.iconData}
                       icon="noto-v1:calendar"
                      
                     />
@@ -92,7 +92,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 <div className={style.divTotal}>
                   <p className={style.Total}>
                     <Iconify
-                      ClassName={style.carteiraTotal}
+                      className={style.carteiraTotal}
                       icon="mingcute:wallet-2-fill"
                       
                     />
@@ -103,7 +103,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 <div className={style.divLucro}>
                   <p className={style.Lucro}>
                     <Iconify
-                      ClassName={style.iconLucro}
+                      className={style.iconLucro}
                       icon="fxemoji:stockchart"
                       
                     />

@@ -44,7 +44,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
                 id="addDespesa"
               >
                 <Iconify
-                  ClassName={style.add}
+                  className={style.add}
                   icon="streamline:add-1-solid"
                 
                 />
@@ -58,7 +58,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
                 id="atualizarProdutos"
               >
                 <Iconify
-                  ClassName={style.iconAtualizar}
+                  className={style.iconAtualizar}
                   icon="stash:pencil-writing-light"
                   
                 />
@@ -68,8 +68,8 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
             
           <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
               {mostrarTudo ? 
-              <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
-               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>}
+              <Iconify icon="ep:arrow-down-bold" className={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" className={style.arrowUp}/>}
             </button>
             </div>  
              

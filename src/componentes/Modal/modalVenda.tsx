@@ -19,7 +19,7 @@ export const ModalAtualizarVendas = ({ isOpen }: ModalProps) => {
 
   const atualizarDespesa = async (vendaData: iAtualizarVenda) => {
     try {
-      const apiRes = await apiResVendasPatch(`/doces/${vendaData.id}`, vendaData);
+      const apiRes = await apiResVendasPatch(vendaData);
       if (apiRes.data) {
         toast.success("Venda atualizada com sucesso");
       }

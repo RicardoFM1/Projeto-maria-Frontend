@@ -45,7 +45,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                 id="addProdutos"
               >
                 <Iconify
-                  ClassName={style.add}
+                  className={style.add}
                   icon="streamline:add-1-solid"
                   
                 />
@@ -59,7 +59,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                 id="atualizarProdutos"
               >
                 <Iconify
-                  ClassName={style.iconAtualizar}
+                  className={style.iconAtualizar}
                   icon="stash:pencil-writing-light"
                   
                 />
@@ -70,8 +70,8 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
            
           <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
               {mostrarTudo ? 
-              <Iconify icon="ep:arrow-down-bold" ClassName={style.arrowDown}/>
-               :<Iconify icon="ep:arrow-up-bold" ClassName={style.arrowUp}/>}
+              <Iconify icon="ep:arrow-down-bold" className={style.arrowDown}/>
+               :<Iconify icon="ep:arrow-up-bold" className={style.arrowUp}/>}
             </button>
           
             </div>
@@ -84,7 +84,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                 <div className={style.caixaProdutos}>
                   <p className={style.nomeProduto}>
                     <Iconify
-                      ClassName={style.carrinhoProduto}
+                      className={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
                       
                     />
@@ -95,7 +95,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                     <div className={style.divPrecoDeCusto}>
                       <p className={style.tituloCusto}>
                         <Iconify
-                          ClassName={style.carteiraCusto}
+                          className={style.carteiraCusto}
                           icon="mingcute:wallet-2-fill"
                          
                         />
@@ -106,7 +106,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
                     <div className={style.divPrecoDeVenda}>
                       <p className={style.tituloGanho}>
                         <Iconify
-                          ClassName={style.carteiraGanho}
+                          className={style.carteiraGanho}
                           icon="mingcute:wallet-2-fill"
                           
                         />

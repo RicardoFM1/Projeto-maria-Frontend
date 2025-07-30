@@ -123,7 +123,7 @@ export const ModalAtualizarDespesa = ({ isOpen }: ModalProps) => {
 
   const atualizarDespesa = async (despesaData: iAtualizarDespesa) => {
     try {
-      const apiRes = await apiResDespesaPatch(`/despesas/${despesaData.id}`, despesaData);
+      const apiRes = await apiResDespesaPatch(despesaData);
       if (apiRes.data) {
         toast.success("Despesa atualizada com sucesso");
       }

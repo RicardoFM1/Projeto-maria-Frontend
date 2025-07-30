@@ -28,7 +28,7 @@ export const Resumo = ({ divType }: ResumoDivProps) => {
         <div className={style.Resumo}>
           <h2>
             <Iconify
-              ClassName={style.graph}
+              className={style.graph}
               icon="noto-v1:money-bag"
               width={24}
               height={24}
