@@ -29,9 +29,14 @@
   flex-wrap: wrap;
   align-items: center;
 }
-.add,
+.add{
+  background-color: #38e016;
+  border-radius: 5px;
+  margin-right: 12px;
+  padding: 3px;
+}
 .iconAtualizar{
-  background-color: #f05c2e;
+  background-color: #f0ed2e;
   border-radius: 5px;
   margin-right: 12px;
 }
