@@ -2,11 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import style from "./modal.module.css";
 import { toast } from "react-toastify";
-import { AtualizarDespesaSchema, CreateDespesaSchema} from "../../schemas/despesa.schemas";
-import type {iAtualizarDespesa, iCreateDespesa } from "../../schemas/despesa.schemas";
-import { apiResDespesaPatch, apiResDespesaPost } from "../apiRes/apiResDespesa";
+import { AtualizarDespesaSchema, CreateDespesaSchema, DeletarDespesaSchema} from "../../schemas/despesa.schemas";
+import type {iAtualizarDespesa, iCreateDespesa, iDeletarDespesa } from "../../schemas/despesa.schemas";
+import { apiResDespesaDelete, apiResDespesaPatch, apiResDespesaPost } from "../apiRes/apiResDespesa";
 import type { ModalProps } from "./interfaceModal";
 import CurrencyInput from "react-currency-input-field";
+import { apiController } from "../../controller/api.controller";
 
 
 
@@ -208,6 +209,70 @@ export const ModalAtualizarDespesa = ({ isOpen }: ModalProps) => {
           </div>
           <button type="submit" className={style.atualizarDespesaSubmit}>
             Atualizar despesa
+          </button>
+        </form>
+      </div>
+      
+
+        </div>
+  } else {
+    return null;
+  }
+};
+export const ModalDeletarDespesa = ({ isOpen }: ModalProps) => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iDeletarDespesa>({
+    mode: "onSubmit",
+    resolver: zodResolver(DeletarDespesaSchema),
+  });
+
+  const deletarDespesa = async ({id}: iDeletarDespesa) => {
+    try {
+      const apiRes = await apiResDespesaDelete(id.toString())
+      if (apiRes.data) {
+        toast.success("Despesa deletada com sucesso");
+      }
+    } catch (errors: any) {
+      toast.error(
+        errors.response.data.message || "Erro ao deletar a despesa!"
+      );
+    }
+  };
+  if (isOpen) {
+    return <div className={style.divModal}>
+      <div className={style.modalDespesa}>
+        <h1 className={style.tituloDeletarDespesa}>Deletar despesa</h1>
+        <form
+          className={style.formDespesa}
+          onSubmit={handleSubmit(deletarDespesa)}
+        >
+          <div className={style.inputDiv}>
+            <label className={style.label} htmlFor="despesa">
+              Numero da despesa
+            </label>
+            <input
+              placeholder="ex: 1"
+              type="text"
+              className={style.inputDespesa}
+              {...register("id", {
+                required: "Numero da despesa obrigatório",
+              
+              })}
+            />
+              {errors.id && errors.id && (
+              <span className={style.errorMsg}>
+                {errors.id?.message}
+              </span>
+              
+            )}
+      
+          </div>
+          <button type="submit" className={style.deletarDespesaSubmit}>
+            Deletar despesa
           </button>
         </form>
       </div>

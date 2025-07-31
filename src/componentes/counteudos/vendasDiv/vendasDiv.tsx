@@ -3,11 +3,12 @@ import { Iconify } from "../../iconify/iconify";
 import style from "./vendasDiv.module.css";
 import type { iVenda, vendaDivProps } from "../../Interfaces/vendasDivInterface";
 import { apiResVendasGet } from "../../apiRes/apiResVendas";
-import { ModalAtualizarVendas } from "../../Modal/modalVenda";
+import { ModalAtualizarVendas, ModalDeletarVendas } from "../../Modal/modalVenda";
 
 export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
   const [mostrarTudo, setMostrarTudo] = useState(false);
-  const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
+  const [isOpenAtualizar, setIsOpenAtualizar] = useState(false);
+  const [isOpenDeletar, setIsOpenDeletar] = useState(false)
   const [venda, setVenda] = useState([] as iVenda[]);
   const limiteExibicao = 5;
 
@@ -51,6 +52,20 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
                 
               </button>
             </div>
+            <div className={style.divBtnDeletarVendas}>
+              <button
+                onClick={() => setIsOpenDeletar(!isOpenDeletar)}
+                className={style.deletar}
+                id="deletarVendas"  
+              >
+                <Iconify
+                  className={style.iconDeletar}
+                  icon="mdi:bin"
+                 
+                />
+                
+              </button>
+            </div>
             
 
             <button className={style.btnMostrar} onClick={() => setMostrarTudo(!mostrarTudo)}>
@@ -62,18 +77,22 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
               
               </div>
           </div>
+              {isOpenDeletar && <ModalDeletarVendas isOpen={isOpenDeletar} />}
               {isOpenAtualizar && <ModalAtualizarVendas isOpen={isOpenAtualizar} />}
           <div className={style.caixasVenda}>
             {vendasVisiveis.map((venda: iVenda) => (
               <div key={venda.id} className={style.caixaVenda}>
+               
                 <div className={style.divProduto}>
+                  
                   <p className={style.nomeProduto}>
+                     
                     <Iconify
                       className={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
                       
                     />
-                    {venda.produto.name} ({venda.quantidade} un)
+                    #{venda.id} | {venda.produto.name} ({venda.quantidade} un)
                   </p>
                 </div>
                 <span className={style.barra}>|</span>

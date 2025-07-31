@@ -24,7 +24,7 @@ export const apiResVendasGetById = async(vendaId:string) => {
 }
 
 export const apiResVendasPatch = async(vendaData:iAtualizarVenda) => {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJpYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3NTM3NzExMTksImV4cCI6MTc1Mzg1NzUxOSwic3ViIjoiMSJ9.wkDnXyE14U7Kn1b0Rf-pMWVbdI310oU7_Sd3iVnEOM8"
+    const token = localStorage.getItem("token")
     const { id , ...data} = vendaData
     const resApi = await apiController.patch(`/vendas/${id}`, data, {
         headers: {
@@ -35,6 +35,11 @@ export const apiResVendasPatch = async(vendaData:iAtualizarVenda) => {
 }
 
 export const apiResVendasDelete = async(vendaId:string) => {
-    const resApi = await apiController.delete(`/vendas/${vendaId}`)
+    const token = localStorage.getItem("token")
+    const resApi = await apiController.delete(`/vendas/${vendaId}`, {
+        headers:{
+            'Authorization': `Bearer ${token}`
+        }
+    })
     return resApi
 }

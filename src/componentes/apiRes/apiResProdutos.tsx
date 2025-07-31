@@ -20,7 +20,7 @@ export const apiResProdutoGetById = async(doceId:string) => {
 }
 
 export const apiResProdutoPatch = async(doceData: iAtualizarDoce) => {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJpYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3NTM3NzExMTksImV4cCI6MTc1Mzg1NzUxOSwic3ViIjoiMSJ9.wkDnXyE14U7Kn1b0Rf-pMWVbdI310oU7_Sd3iVnEOM8"
+    const token = localStorage.getItem("token")
     const { id, ...data} = doceData
     const resApi = await apiController.patch(`/doces/${id}`, data, {
         headers:{

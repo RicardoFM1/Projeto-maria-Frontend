@@ -63,13 +63,13 @@
     flex-direction: column;
   }
 }
-.atualizar {
+.atualizar, .deletar {
   border: none;
   border-radius: 12px;
   background: none;
   transition: all 0.3s ease;
 }
-.atualizar:hover {
+.atualizar:hover, .deletar:hover {
   transform: translateY(-5px);
 }
 .iconAtualizar{
@@ -77,7 +77,12 @@
   border-radius: 5px;
   margin-right: 12px;
 }
-
+.iconDeletar{
+  background-color: #d82a0b;
+  border-radius: 5px;
+  margin-right: 12px;
+  padding: 3px;
+}
 .btnMostrar{
   border: none;
   background: none;

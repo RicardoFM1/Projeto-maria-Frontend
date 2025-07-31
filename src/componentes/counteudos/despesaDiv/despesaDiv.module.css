@@ -13,13 +13,13 @@
 .custosMensais:hover {
   transform: translateY(-5px);
 }
-.adicionar, .atualizar {
+.adicionar, .atualizar, .deletar {
   border: none;
   border-radius: 12px;
   background: none;
   transition: all 0.3s ease;
 }
-.adicionar:hover, .atualizar:hover {
+.adicionar:hover, .atualizar:hover, .deletar:hover {
   transform: translateY(-5px);
 }
 .caixaT {
@@ -39,6 +39,12 @@
   background-color: #f0ed2e;
   border-radius: 5px;
   margin-right: 12px;
+}
+.iconDeletar{
+  background-color: #d82a0b;
+  border-radius: 5px;
+  margin-right: 12px;
+  padding: 3px;
 }
 
 .divDespesa{

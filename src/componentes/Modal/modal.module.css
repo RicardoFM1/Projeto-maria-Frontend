@@ -1,5 +1,6 @@
 .tituloCadastroProduto, .tituloCadastroDespesa, .tituloAtualizarProduto, 
-.tituloAtualizarDespesa, .tituloAtualizarProduto{
+.tituloAtualizarDespesa, .tituloAtualizarVenda, .tituloDeletarDespesa,
+.tituloDeletarVenda{
     text-align: center;
 }
 
@@ -26,7 +27,8 @@ label{
 
 
 .cadastrarDoceSubmit, .cadastrarDespesaSubmit, .atualizarDoceSubmit, 
-.atualizarDespesaSubmit, .atualizarVendaSubmit {
+.atualizarDespesaSubmit, .atualizarVendaSubmit, .deletarDespesaSubmit,
+.deletarVendaSubmit{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +63,8 @@ label{
 }
 
 .modalProduto:hover, .cadastrarDoceSubmit:hover,
- .cadastrarDespesaSubmit:hover, .cadastrarVendaSubmit {
+.cadastrarDespesaSubmit:hover, .cadastrarVendaSubmit, .deletarDespesaSubmit,
+.deletarVendaSubmit {
   transform: translateY(-5px);
 }
 

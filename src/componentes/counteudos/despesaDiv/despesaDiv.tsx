@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Iconify } from "../../iconify/iconify";
 import type { despesaDivProps, iDespesa } from "../../Interfaces/despesaDivInterface";
-import { ModalAtualizarDespesa, ModalDespesa } from "../../Modal/modalDespesa";
+import { ModalAtualizarDespesa, ModalDeletarDespesa, ModalDespesa } from "../../Modal/modalDespesa";
 import style from "./despesaDiv.module.css";
 import { apiResDespesaGet } from "../../apiRes/apiResDespesa";
 
 export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
+  const [isOpenDeletar, setIsOpenDeletar] = useState(false)
   const [despesa, setDespesa] = useState([] as iDespesa[]);
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const limiteExibicao = 5;
@@ -55,11 +56,25 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
               <button
                 onClick={() => setIsOpenAtualizar(!isOpenAtualizar)}
                 className={style.atualizar}
-                id="atualizarProdutos"
+                id="atualizarDespesas"
               >
                 <Iconify
                   className={style.iconAtualizar}
                   icon="stash:pencil-writing-light"
+                  
+                />
+                
+              </button>
+            </div>
+            <div className={style.divBtnDeletarDespesas}>
+              <button
+                onClick={() => setIsOpenDeletar(!isOpenDeletar)}
+                className={style.deletar}
+                id="deletarDespesas"
+              >
+                <Iconify
+                  className={style.iconDeletar}
+                  icon="mdi:bin"
                   
                 />
                 
@@ -74,13 +89,15 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
             </div>  
              
           </div>
+          {isOpenDeletar && <ModalDeletarDespesa isOpen={isOpenDeletar} />}
           {isOpen && <ModalDespesa isOpen={isOpen} />}
           {isOpenAtualizar && <ModalAtualizarDespesa isOpen={isOpenAtualizar} />}
           <div className={style.caixaT}>
             {despesasVisiveis.map((despesa: iDespesa) => (
               <div key={despesa.id} className={style.divDespesa}>
                 <div className={style.caixaDespesa}>
-                  <p>{despesa.name}</p>
+                  
+                  <p>#{despesa.id} | {despesa.name}</p>
                   <div className={style.valorDespesa}>
                     <div className={style.divValor}>
                       <p className={style.Valor}> R$ {despesa.valor}</p>

@@ -83,12 +83,13 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
               <div key={doce.id} className={style.divProdutos}>
                 <div className={style.caixaProdutos}>
                   <p className={style.nomeProduto}>
+                    
                     <Iconify
                       className={style.carrinhoProduto}
                       icon="game-icons:shopping-cart"
                       
                     />
-                    {doce.name}
+                    #{doce.id} |  {doce.name}
                   </p>
 
                   <div className={style.valoresProduto}>

@@ -21,7 +21,7 @@ export const apiResDespesaGetById = async(despesaId:string) => {
 }
 
 export const apiResDespesaPatch = async(despesaData:iAtualizarDespesa) => {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtYXJpYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3NTM3NzExMTksImV4cCI6MTc1Mzg1NzUxOSwic3ViIjoiMSJ9.wkDnXyE14U7Kn1b0Rf-pMWVbdI310oU7_Sd3iVnEOM8"
+    const token = localStorage.getItem("token")
     const { id, ...data} = despesaData
     const resApi = await apiController.patch(`/despesas/${id}`, data, {
         headers:{
@@ -31,7 +31,12 @@ export const apiResDespesaPatch = async(despesaData:iAtualizarDespesa) => {
     return resApi
 }
 
-export const apiResDespesaDelete = async(despesaId:string) => {
-    const resApi = await apiController.delete(`/despesas/${despesaId}`)
+export const apiResDespesaDelete = async(id:string) => {
+    const token = localStorage.getItem("token")
+    const resApi = await apiController.delete(`/despesas/${id}`, {
+        headers:{
+            'Authorization': `Bearer ${token}`
+        }
+    })
     return resApi
 }
