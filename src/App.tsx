@@ -1,12 +1,11 @@
 
-import { ConteudoPrincipal } from './componentes/conteudoPrincipal/conteudoPrincipal'
-import './App.css'
+import { Rotas } from './componentes/Routes/Routes'
 function App() {
   return (
     <>
-    <div className="divBackground">
-    <ConteudoPrincipal/>
-    </div>
+    
+    <Rotas />
+   
     </>
   )
 }

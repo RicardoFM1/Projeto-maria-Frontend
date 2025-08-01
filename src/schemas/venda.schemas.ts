@@ -18,8 +18,21 @@ export const ReturnVendaSchema = z.object({
     id: z.number()
 })
 
+export const AtualizarVendaSchema = z.object({
+    id: z.string().min(1, "Precisa ser preenchido"),
+    produto: z.string().min(1, "Precisa ser preenchido").toLowerCase(),
+    quantidade:z.number().min(1, "Precisa ser preenchido ou um número válido").positive(
+        "Precisa ser maior que 0"
+    )
+})
+
+export const DeletarVendaSchema = z.object({
+    id: z.string().min(1, "ID é obrigatório").regex(/^\d+$/, "ID deve conter apenas números")
+})
+
 export const ReturnAllVendasSchema = ReturnVendaSchema.array()
 
 export type iCreateVenda = z.infer<typeof CreateVendaSchema>
 export type iReturnVenda = z.infer<typeof ReturnVendaSchema>
-
+export type iAtualizarVenda = z.infer<typeof AtualizarVendaSchema>
+export type iDeletarVenda = z.infer<typeof DeletarVendaSchema>

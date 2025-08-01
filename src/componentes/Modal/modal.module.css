@@ -1,4 +1,6 @@
-.tituloCadastroProduto, .tituloCadastroDespesa{
+.tituloCadastroProduto, .tituloCadastroDespesa, .tituloAtualizarProduto, 
+.tituloAtualizarDespesa, .tituloAtualizarVenda, .tituloDeletarDespesa,
+.tituloDeletarVenda{
     text-align: center;
 }
 
@@ -14,7 +16,7 @@ label{
     font-weight: 500;
     
 }
-.inputProduto, .inputDespesa {
+.inputProduto, .inputDespesa, .inputVenda {
   width: 100%;
   height: 50px;
   border: 2px solid rgb(193, 193, 193);
@@ -24,7 +26,9 @@ label{
 }
 
 
-.cadastrarDoceSubmit, .cadastrarDespesaSubmit {
+.cadastrarDoceSubmit, .cadastrarDespesaSubmit, .atualizarDoceSubmit, 
+.atualizarDespesaSubmit, .atualizarVendaSubmit, .deletarDespesaSubmit,
+.deletarVendaSubmit{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +42,7 @@ label{
   transition: all 0.3s ease;
   background: linear-gradient(to right, #fd6965, #f05c2e);
 }
-.modalProduto, .modalDespesa{
+.modalProduto, .modalDespesa, .modalVenda{
     font-family: Arial, Helvetica, sans-serif;
     width: 75%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -58,13 +62,13 @@ label{
     align-items: center;
 }
 
-.modalProduto:hover {
+.modalProduto:hover, .cadastrarDoceSubmit:hover,
+.cadastrarDespesaSubmit:hover, .cadastrarVendaSubmit, .deletarDespesaSubmit,
+.deletarVendaSubmit {
   transform: translateY(-5px);
 }
-.cadastrarDoceSubmit:hover, .cadastrarDespesaSubmit:hover{
-  transform: translateY(-5px);
-}
-.formProduto, .formDespesa{
+
+.formProduto, .formDespesa, .formVenda{
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -13,15 +13,13 @@
 .custosMensais:hover {
   transform: translateY(-5px);
 }
-.adicionar {
+.adicionar, .atualizar, .deletar {
   border: none;
   border-radius: 12px;
-  height: 60px;
-  width: 50%;
-  border-left: 4px solid #ff6b6b;
+  background: none;
   transition: all 0.3s ease;
 }
-.adicionar:hover {
+.adicionar:hover, .atualizar:hover, .deletar:hover {
   transform: translateY(-5px);
 }
 .caixaT {
@@ -31,19 +29,24 @@
   flex-wrap: wrap;
   align-items: center;
 }
-.add,
-.remove {
-  background-color: #f05c2e;
-  padding: 3px;
+.add{
+  background-color: #38e016;
   border-radius: 5px;
-  margin-bottom: -8px;
+  margin-right: 12px;
+  padding: 3px;
+}
+.iconAtualizar{
+  background-color: #f0ed2e;
+  border-radius: 5px;
   margin-right: 12px;
 }
-.divBtnAddDespesa{
-  display: flex;
-  justify-content: center;
-  width: 48%;
+.iconDeletar{
+  background-color: #d82a0b;
+  border-radius: 5px;
+  margin-right: 12px;
+  padding: 3px;
 }
+
 .divDespesa{
   display: flex;
   width: 48%;
@@ -83,9 +86,6 @@
   display: flex;
   justify-content: center;
 }
-.Despesas h2{
-  margin-bottom: 20px;
-}
 
 .caixaDespesa:nth-child(1){
   color: rgb(83, 83, 83);
@@ -108,19 +108,9 @@
     color: rgb(83, 83, 83);
     font-size: 17px;
   }
-  .divBtnAddDespesa{
-  display: flex;
-  justify-content: center;
-  width: 100%;
+ 
 }
-}
-@media (max-width: 660px){
-    .divBtnAddDespesa{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-    }
-}
+
 @media (max-width: 480px){
     .caixaDespesa{
     display: flex;
@@ -138,7 +128,7 @@
     flex-wrap: wrap;
   }
 }
-@media (max-width: 325px){
+@media (max-width: 350px){
   .caixaDespesa{
     display: flex;
     width: 100%;
@@ -147,10 +137,32 @@
   .Valor{
     justify-content: center;
   }
-  .divBtnAddDespesa{
-    width: 100%;
-  }
   .adicionar{
     width: 100%;
   }
+  .headerDespesa{
+    flex-direction: column;
+  }
+}
+.divFuncoes{
+  display: flex;
+}
+.headerDespesa{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+.btnMostrar{
+  border: none;
+  background: none;
+}
+.inputSearch{
+  width: 200px;
+  height: 35px;
+}
+.tituloHeaderDespesa{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

@@ -11,6 +11,7 @@ export interface despesaDivProps {
 }
 
 export interface iDespesa {
+    id: number
     name: string,
     valor: number
 }

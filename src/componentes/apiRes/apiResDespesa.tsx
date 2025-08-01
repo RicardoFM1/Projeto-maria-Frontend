@@ -1,5 +1,5 @@
 import { apiController } from "../../controller/api.controller"
-import type { iCreateDespesa } from "../../schemas/despesa.schemas"
+import type { iAtualizarDespesa, iCreateDespesa } from "../../schemas/despesa.schemas"
 
 
 
@@ -20,12 +20,23 @@ export const apiResDespesaGetById = async(despesaId:string) => {
     return resApi
 }
 
-export const apiResDespesaPatch = async(despesaId:string, despesaData:iCreateDespesa) => {
-    const resApi = await apiController.patch(`/despesas/${despesaId}`, despesaData)
+export const apiResDespesaPatch = async(despesaData:iAtualizarDespesa) => {
+    const token = localStorage.getItem("token")
+    const { id, ...data} = despesaData
+    const resApi = await apiController.patch(`/despesas/${id}`, data, {
+        headers:{
+            'Authorization': `Bearer ${token} `
+        }
+    })
     return resApi
 }
 
-export const apiResDespesaDelete = async(despesaId:string) => {
-    const resApi = await apiController.delete(`/despesas/${despesaId}`)
+export const apiResDespesaDelete = async(id:string) => {
+    const token = localStorage.getItem("token")
+    const resApi = await apiController.delete(`/despesas/${id}`, {
+        headers:{
+            'Authorization': `Bearer ${token}`
+        }
+    })
     return resApi
 }

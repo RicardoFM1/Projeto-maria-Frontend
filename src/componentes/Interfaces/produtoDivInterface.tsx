@@ -9,6 +9,7 @@ export interface produtoDivProps {
 }
 
 export interface iProduto {
+    id: number
     name: string,
     preco_de_custo: number,
     preco_de_venda: number

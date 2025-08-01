@@ -1,25 +1,40 @@
 import { Iconify } from "../iconify/iconify";
 import style from "./conteudoPrincipal.module.css";
-import { FormRegistro } from "../registro/formRegistro";
-import { Produto } from "../produtoDiv/produtoDiv";
-import { Despesa } from "../despesaDiv/despesaDiv";
-import { Venda } from "../vendasDiv/vendasDiv";
-
-
+import { FormRegistro } from "../counteudos/registro/formRegistro";
+import { Produto } from "../counteudos/produtoDiv/produtoDiv";
+import { Despesa } from "../counteudos/despesaDiv/despesaDiv";
+import { Venda } from "../counteudos/vendasDiv/vendasDiv";
+import { Resumo } from "../counteudos/resumoDiv/resumoDiv";
+import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 export const ConteudoPrincipal = () => {
+  const [isLogged, SetIslogged] = useState(false)
 
-  return (
-    <>
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if(token){
+    SetIslogged(true)
+    }
+    else{
+    SetIslogged(false)
+    }
+    
+}, [Navigate])
+
+  if(isLogged){
+
+    return <div className={style.divBackground}>
+    
       <div className={style.divPrincipal}>
         <div className={style.divHeader}>
           <h1 className={style.title}>
             <Iconify
-              ClassName={style.cupcake}
+              className={style.cupcake}
               icon="openmoji:cupcake"
               width={42}
               height={42}
-            />
+              />
             Maria's cupcake
           </h1>
           <p className={style.pc}>Controle de Vendas e Lucros</p>
@@ -28,54 +43,25 @@ export const ConteudoPrincipal = () => {
           <div className={style.registrarVenda}>
             <h2>
               <Iconify
-                ClassName={style.graph}
+                className={style.graph}
                 icon="uis:graph-bar"
                 width={24}
                 height={24}
-              />
+                />
               Registrar Venda
             </h2>
 
-          <FormRegistro/>
-
-
-              
-
-              
+            <FormRegistro />
           </div>
-          <div className={style.resumoHoje}>
-            <h2>
-              <Iconify
-                ClassName={style.graph}
-                icon="noto-v1:money-bag"
-                width={24}
-                height={24}
-              />{" "}
-              Resumo de hoje
-            </h2>
-            <div className={style.caixaStatus}>
-              <div className={style.resumoStatus}>
-                <p>0</p>
-                <p className={style.pStatus}>Produtos vendidos</p>
-              </div>
-              <div className={style.resumoStatus}>
-                <p>R$0,00</p>
-                <p className={style.pStatus}>Faturamento</p>
-              </div>
-
-              <div className={style.resumoStatus}>
-                <p>R$0,00</p>
-                <p className={style.pStatus}>Lucro</p>
-              </div>
-            </div>
-            <p className={style.vendasHoje}>vendas de hoje</p>
-          </div>
+            <Resumo divType="Resumo"/>
         </div>
-        <Venda divType="Venda" /> 
+        <Venda divType="Venda" />
         <Produto divType="Produto" />
-       
+
         <Despesa divType="Despesa" />
       </div>
-    </>
-  );
+
+   </div>
+
+}
 };

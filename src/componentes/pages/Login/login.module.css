@@ -1,0 +1,109 @@
+body::-webkit-scrollbar {
+  color: white;
+  border: none;
+  background-color: rgb(155, 154, 154);
+  width: 1px;
+}
+body {
+  background-image: url("../../imagens/imagemBackground.jpeg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 100%;
+}
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.formulario {
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  padding: 32px;
+  max-height: 760px;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.formulario h1 {
+  text-align: center;
+  align-items: center;
+}
+
+.form fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 8px;
+}
+.errorMsg {
+  color: #9c1d1d;
+  font-size: 14px;
+  font-weight: 600;
+}
+.input {
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  transition: all 0.5ms ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input:focus {
+  animation: focusInput 3s linear infinite;
+}
+
+@keyframes focusInput {
+  0% {
+    border: 3px solid rgb(248, 247, 247);
+  }
+  50% {
+    border: 3px solid rgb(36, 36, 36);
+  }
+  60% {
+    border: 3px solid rgb(78, 78, 78);
+  }
+  70% {
+    border: 3px solid rgb(102, 101, 101);
+  }
+  80% {
+    border: 3px solid rgb(194, 194, 194);
+  }
+  90% {
+    border: 3px solid rgb(209, 209, 209);
+  }
+  100% {
+    border: 3px solid rgb(255, 255, 255);
+  }
+}
+
+.btnSubmit {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 2s ease;
+  margin-top: 48px;
+  background-color: rgb(180, 180, 180);
+}
+
+.btnSubmit:hover {
+  background-color: rgb(75, 74, 74);
+  color: white;
+}
+.label {
+  font-size: 18px;
+  font-weight: 600;
+}

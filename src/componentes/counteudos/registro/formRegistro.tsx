@@ -1,12 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import type { iCreateVenda } from "../../schemas/venda.schemas";
-import { CreateVendaSchema } from "../../schemas/venda.schemas";
-import { apiResVendasPost } from "../apiRes/apiResVendas";
-import { Iconify } from "../iconify/iconify";
-import type { inputProps, Registro } from "../Interfaces/registroInterface";
+import type { iCreateVenda } from "../../../schemas/venda.schemas";
+import { CreateVendaSchema } from "../../../schemas/venda.schemas";
+import { apiResVendasPost } from "../../apiRes/apiResVendas";
+import type { inputProps } from "../../Interfaces/registroInterface";
 import style from "./formRegistro.module.css";
 
 
@@ -17,10 +15,10 @@ export const FormRegistro = ({
   label,
   className,
 }: inputProps) => {
-  const [registros, setRegistros] = useState<Registro[]>([
-    { Produto: "", Quantidade: 0 },
-  ]);
-  const [showRemove, setShowRemove] = useState(false);
+  // const [registros, _setRegistros] = useState<Registro[]>([
+  //   { Produto: "", Quantidade: 0 },
+  // ]);
+  // const [showRemove, setShowRemove] = useState(false);
 
   const {
     register,
@@ -35,19 +33,19 @@ export const FormRegistro = ({
     },
   });
 
-  useEffect(() => {
-    setShowRemove(registros.length > 1);
-  }, [registros]);
+  // useEffect(() => {
+  //   setShowRemove(registros.length > 1);
+  // }, [registros]);
 
-  const AdicionarRegistro = () => {
-    setRegistros([...registros, { Produto: "", Quantidade: 0 }]);
-  };
+  // const AdicionarRegistro = () => {
+  //   setRegistros([...registros, { Produto: "", Quantidade: 0 }]);
+  // };
 
-  const RemoverRegistro = () => {
-    if (registros.length > 1) {
-      setRegistros(registros.slice(0, -1));
-    }
-  };
+  // const RemoverRegistro = () => {
+  //   if (registros.length > 1) {
+  //     setRegistros(registros.slice(0, -1));
+  //   }
+  // };
 
   const cadastrarVenda = async (vendaData: iCreateVenda) => {
     try {
@@ -64,12 +62,11 @@ export const FormRegistro = ({
     <form className={style.formRegistro} onSubmit={handleSubmit(cadastrarVenda)}>
       <label htmlFor={label}>{label}</label>
 
-      {registros.map((_, index) => (
-        <div key={index} className={style.inputsRegistrar}>
+      
+        <div className={style.inputsRegistrar}>
           <div className={style.caixapp}>
-            <label htmlFor={`produto-${index}`}>Produto</label>
+            <label htmlFor="produto">Produto</label>
             <input
-              id={`produto-${index}`}
               type="text"
               placeholder="ex: Cupcake"
               list={list}
@@ -84,9 +81,9 @@ export const FormRegistro = ({
           </div>
 
           <div className={style.caixapp2}>
-            <label htmlFor={`quantidade-${index}`}>Quantidade</label>
+            <label htmlFor="quantidade">Quantidade</label>
             <input
-              id={`quantidade-${index}`}
+              
               type="number"
               placeholder="ex: 5"
               {...register(`quantidade`, {
@@ -104,43 +101,14 @@ export const FormRegistro = ({
             )}
           </div>
         </div>
-      ))}
+    
 
       {errorMsg && <span className={className}>{errorMsg}</span>}
 
-      <button
-        type="button"
-        onClick={AdicionarRegistro}
-        className={style.adicionarRegistro}
-        id="addRegistro"
-      >
-        <Iconify
-          ClassName={style.add}
-          icon="streamline:add-1-solid"
-          width={24}
-          height={24}
-        />
-        Adicionar
-      </button>
+      
 
-      {showRemove && (
-        <div className={style.removerRegistroAnim}>
-          <button
-            type="button"
-            onClick={RemoverRegistro}
-            className={style.removerRegistro}
-            id="removeRegistro"
-          >
-            <Iconify
-              ClassName={style.remove}
-              icon="material-symbols:remove-rounded"
-              width={24}
-              height={24}
-            />
-            Remover
-          </button>
-        </div>
-      )}
+      
+      
 
       <button
         type="submit"
