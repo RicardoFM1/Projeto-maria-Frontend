@@ -9,6 +9,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
   const [doces, setDoces] = useState([] as iProduto[]);
+  const [search, setSearch] = useState("")
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const limiteExibicao = 5;
 
@@ -28,15 +29,27 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
     return () => clearTimeout(timeoutId);
   }, [doces]);
 
-  const docesVisiveis = mostrarTudo ? doces : doces.slice(0, limiteExibicao);
+  const docesFiltrados = doces.filter(d => 
+    d.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const docesVisiveis = mostrarTudo ? docesFiltrados : docesFiltrados.slice(0, limiteExibicao);
 
   return (
     <div className={style.divProduto}>
       {divType === "Produto" ? (
         <div className={style.Produtos}>
           <div className={style.headerProdutos}>
+            <div className={style.tiutloHeaderProdutos}>
           <h2>Produtos</h2>
-         
+          <input 
+          type="search" 
+          className={style.inputSearch}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Pesquisar doce..."
+          />
+          </div>
           <div className={style.divFuncoes}>
           <div className={style.divBtnAddProdutos}>
               <button
@@ -76,7 +89,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
           
             </div>
           </div>
- {isOpen && <ModalProduto isOpen={isOpen} />}
+          {isOpen && <ModalProduto isOpen={isOpen} />}
           {isOpenAtualizar && <ModalAtualizarProduto isOpen={isOpenAtualizar} />}
           <div className={style.caixaT}>
             {docesVisiveis.map((doce: iProduto) => (
@@ -121,7 +134,7 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
             ))}
 
         
-            {!mostrarTudo && doces.length > limiteExibicao && (
+            {!mostrarTudo && docesFiltrados.length > limiteExibicao && (
               <div
                 style={{ fontWeight: "bold", cursor: "pointer", margin: "8px 0" }}
                 onClick={() => setMostrarTudo(true)}

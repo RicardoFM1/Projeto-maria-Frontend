@@ -8,6 +8,7 @@ import { ModalAtualizarVendas, ModalDeletarVendas } from "../../Modal/modalVenda
 export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const [isOpenAtualizar, setIsOpenAtualizar] = useState(false);
+  const [search, setSearch] = useState("")
   const [isOpenDeletar, setIsOpenDeletar] = useState(false)
   const [venda, setVenda] = useState([] as iVenda[]);
   const limiteExibicao = 5;
@@ -29,14 +30,32 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
   }, [venda]);
 
  
-  const vendasVisiveis = mostrarTudo ? venda : venda.slice(0, limiteExibicao);
+  
+
+  const vendasFiltradas = venda.filter(p => 
+    p.produto.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const vendasVisiveis = mostrarTudo
+    ? vendasFiltradas
+    : vendasFiltradas.slice(0, limiteExibicao);
 
   return (
     <div className={style.vendasTotais}>
       {divType === "Venda" ? (
         <div className={style.vendas}>
           <div className={style.headerVendas}>
+            <div className={style.tituloHeaderVendas}>
             <h2>Vendas</h2>
+            <input 
+            className={style.inputSearch} 
+            value={search}
+            id="vendasSearch" 
+            type="search" 
+            placeholder="Pesquisar venda..."
+            onChange={(e) => setSearch(e.target.value)}
+            />
+            </div>
             <div className={style.divFuncoes}>
             <div className={style.divBtnAtualizarVendas}>
               <button
@@ -133,7 +152,7 @@ export const Venda = ({ errorMsg, divType }: vendaDivProps) => {
             ))}
 
            
-            {!mostrarTudo && venda.length > limiteExibicao && (
+            {!mostrarTudo && vendasFiltradas.length > limiteExibicao && (
               <div
                 className={style.reticulacoes}
                 style={{ fontWeight: "bold", cursor: "pointer", padding: "8px" }}

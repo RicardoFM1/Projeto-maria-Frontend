@@ -150,9 +150,19 @@
 .headerDespesa{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px;
 }
 .btnMostrar{
   border: none;
   background: none;
+}
+.inputSearch{
+  width: 200px;
+  height: 35px;
+}
+.tituloHeaderDespesa{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

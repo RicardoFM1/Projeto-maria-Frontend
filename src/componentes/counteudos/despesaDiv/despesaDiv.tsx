@@ -10,6 +10,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
   const [isOpenAtualizar, setIsOpenAtualizar] = useState(false)
   const [isOpenDeletar, setIsOpenDeletar] = useState(false)
   const [despesa, setDespesa] = useState([] as iDespesa[]);
+  const [search, setSearch] = useState("")
   const [mostrarTudo, setMostrarTudo] = useState(false);
   const limiteExibicao = 5;
 
@@ -29,14 +30,28 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
     return () => clearTimeout(timeoutId);
   }, [despesa]);
 
-  const despesasVisiveis = mostrarTudo ? despesa : despesa.slice(0, limiteExibicao);
+  const despesaFiltrada = despesa.filter(d =>
+    d.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const despesasVisiveis = mostrarTudo ? despesaFiltrada : despesaFiltrada.slice(0, limiteExibicao);
 
   return (
     <div className={style.custosMensais}>
       {divType === "Despesa" ? (
         <div className={style.Despesas}>
           <div className={style.headerDespesa}>
+            <div className={style.tituloHeaderDespesa}>
           <h2>Custos mensais</h2>
+          <input 
+          type="search" 
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Pesquisar despesa..."
+          className={style.inputSearch}
+          />
+          </div>
+          
           <div className={style.divFuncoes}>
             <div className={style.divBtnAddDespesa}>
               <button
@@ -108,7 +123,7 @@ export const Despesa = ({ errorMsg, divType }: despesaDivProps) => {
             ))}
 
             
-            {!mostrarTudo && despesa.length > limiteExibicao && (
+            {!mostrarTudo && despesaFiltrada.length > limiteExibicao && (
               <div
                 style={{ fontWeight: "bold", cursor: "pointer", margin: "8px 0" }}
                 onClick={() => setMostrarTudo(true)}

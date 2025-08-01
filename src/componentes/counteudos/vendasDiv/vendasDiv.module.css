@@ -90,9 +90,20 @@
 .divFuncoes{
   display: flex;
 }
+
 .headerVendas{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px;
+}
+.inputSearch{
+  width: 200px;
+  height: 35px;
+}
+.tituloHeaderVendas{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
