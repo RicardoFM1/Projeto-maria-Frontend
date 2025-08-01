@@ -1,5 +1,5 @@
 import z from "zod"
-import { CreateDoceSchema } from "./doce.schemas"
+
 
 export const CreateDespesaSchema = z.object({
     name: z.string().min(1, "Precisa ser preenchido").toLowerCase(),
