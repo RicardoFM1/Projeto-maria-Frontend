@@ -18,6 +18,11 @@ export const apiResVendasResumoGet = async() => {
     return resApi
 }
 
+export const apiResVendasResumoPorProdutoGet = async(produtoId:string) => {
+    const resApi = await apiController.get(`/vendas/resumo/${produtoId}`)
+    return resApi
+}
+
 export const apiResVendasGetById = async(vendaId:string) => {
     const resApi = await apiController.get(`/vendas/${vendaId}`)
     return resApi
