@@ -7,7 +7,7 @@ import type {iAtualizarDespesa, iCreateDespesa, iDeletarDespesa } from "../../sc
 import { apiResDespesaDelete, apiResDespesaPatch, apiResDespesaPost } from "../apiRes/apiResDespesa";
 import type { ModalProps } from "./interfaceModal";
 import CurrencyInput from "react-currency-input-field";
-import { apiController } from "../../controller/api.controller";
+
 
 
 
