@@ -23,10 +23,9 @@ export const Produto = ({ divType, errorMsg }: produtoDivProps) => {
   }, []);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+  
       getDoces();
-    }, 3000);
-    return () => clearTimeout(timeoutId);
+    
   }, [doces]);
 
   const docesFiltrados = doces.filter(d => 
